@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)&&"IntersectionObserver" in window)document.documentElement.classList.add("anim");</script>
+<title>Golden Chance Senior · Una nueva forma de vivir</title>
+<meta name="description" content="Golden Chance Senior: un nuevo proyecto residencial sénior en el norte de España, impulsado por Golden Chance. Independencia, comunidad y futuro. Proyecto en desarrollo.">
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+<link rel="icon" href="assets/favicon-32.png?v=2" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/favicon-192.png?v=2" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
+<link rel="preload" href="assets/fonts/fraunces-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/fraunces-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/fraunces-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/source-sans-3-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/fraunces-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/source-sans-3-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/source-sans-3-latin-600-normal.woff2) format("woff2")}
+/* Golden Chance Senior · clases con convención SUIT CSS */
+:root{
+  --c-ivory:#F6F2E9;
+  --c-sand:#ECE5D6;
+  --c-olive:#7C8265;        /* decorativo / fondos */
+  --c-olive-ink:#545A41;    /* texto oliva accesible sobre marfil (≈6.4:1) */
+  --c-terracotta:#B88E78;   /* decorativo */
+  --c-terracotta-ink:#8A5640; /* botones / enlaces (≈5.6:1 sobre marfil) */
+  --c-charcoal:#30352F;     /* texto principal (≈11.9:1) */
+  --c-muted:#565B52;        /* texto secundario (≈6.6:1) */
+  --c-line:#D8D0BE;
+  --c-white:#FFFDF8;
+  --f-serif:"Fraunces", Georgia, "Times New Roman", serif;
+  --f-sans:"Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs-body:clamp(1rem, .96rem + .2vw, 1.125rem);
+  --fs-lead:clamp(1.125rem, 1.02rem + .45vw, 1.3125rem);
+  --fs-h3:clamp(1.2rem, 1.1rem + .4vw, 1.4rem);
+  --fs-h2:clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  --fs-h1:clamp(2.125rem, 1.5rem + 3.3vw, 4.25rem);
+  --space-section:clamp(4.5rem, 3rem + 6vw, 9rem);
+  --gutter:clamp(1rem, .5rem + 3vw, 3rem);
+  --max:76rem;
+  --radius:4px;
+  --focus:0 0 0 3px var(--c-ivory), 0 0 0 6px var(--c-terracotta-ink);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--c-ivory);color:var(--c-charcoal);font-family:var(--f-sans);font-size:var(--fs-body);line-height:1.65}
+img{max-width:100%;height:auto;display:block}
+[id]{scroll-margin-top:5rem}
+h1,h2,h3{font-family:var(--f-serif);font-weight:500;line-height:1.12;letter-spacing:-.01em;margin:0}
+p{margin:0 0 1em}
+a{color:var(--c-terracotta-ink);text-underline-offset:.2em}
+:focus-visible{outline:none;box-shadow:var(--focus);border-radius:var(--radius)}
+
+/* ---------- Utilidades ---------- */
+.u-container{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.u-nowrap{white-space:nowrap}
+.u-visuallyHidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.u-eyebrow{font-family:var(--f-sans);font-size:.875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-olive-ink);margin:0 0 1.25rem;display:flex;align-items:center;gap:.75rem}
+.u-eyebrow::before{content:"";width:2rem;height:1px;background:currentColor}
+
+/* ---------- SkipLink ---------- */
+.SkipLink{position:absolute;left:1rem;top:-4rem;z-index:100;background:var(--c-charcoal);color:var(--c-white);padding:.75rem 1.25rem;text-decoration:none;border-radius:var(--radius)}
+.SkipLink:focus{top:1rem}
+
+/* ---------- Button ---------- */
+.Button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.25rem;padding:.8rem 1.6rem;font:600 1.0625rem/1.2 var(--f-sans);text-decoration:none;border-radius:var(--radius);border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.Button--primary{background:var(--c-terracotta-ink);color:var(--c-white)}
+.Button--primary:hover{background:#723F2C}
+.Button--ghost{border-color:currentColor;color:var(--c-charcoal);background:transparent}
+.Button--ghost:hover{background:var(--c-charcoal);color:var(--c-white)}
+.Button--light{border-color:var(--c-white);color:var(--c-white)}
+.Button--light:hover{background:var(--c-white);color:var(--c-charcoal)}
+
+/* ---------- Header ---------- */
+.Header{position:sticky;top:0;z-index:50;background:rgba(246,242,233,.96);border-bottom:1px solid var(--c-line)}
+.Header-inner{max-width:88rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:4.75rem}
+.Brand{flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;text-decoration:none;color:var(--c-charcoal);line-height:1;padding-block:.55rem}
+.Brand-logo{display:block;height:2.75rem;width:auto}
+.Brand-sub{font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:1rem;letter-spacing:.01em;color:var(--c-olive-ink);white-space:nowrap}
+@media (max-width:30em){.Brand-logo{height:2.3rem}.Brand-sub{font-size:.9rem}}
+.Nav-list{list-style:none;margin:0;padding:0;display:flex;gap:1.75rem}
+.Header-cta{white-space:nowrap}
+.Nav-link{white-space:nowrap;color:var(--c-charcoal);text-decoration:none;font-weight:500;font-size:.9375rem;padding:.5rem 0;border-bottom:2px solid transparent}
+.Nav-link:hover{border-color:var(--c-terracotta)}
+.Header-cta{min-height:2.75rem;padding:.55rem 1.1rem;font-size:.9375rem}
+.Nav-toggle{display:none;align-items:center;gap:.5rem;min-height:2.5rem;padding:.4rem .9rem;background:transparent;border:1px solid var(--c-charcoal);border-radius:var(--radius);font:600 .9375rem var(--f-sans);color:var(--c-charcoal);cursor:pointer}
+.Nav-toggleIcon{width:1.1rem;height:2px;background:currentColor;position:relative}
+.Nav-toggleIcon::before,.Nav-toggleIcon::after{content:"";position:absolute;left:0;width:100%;height:2px;background:currentColor}
+.Nav-toggleIcon::before{top:-6px}.Nav-toggleIcon::after{top:6px}
+@media (max-width:79.99em){
+    .Nav-toggle{flex:none}
+  .Nav-toggle{display:inline-flex}
+  .Header-cta{display:none}
+  .Nav{position:absolute;inset:100% 0 auto 0;background:var(--c-ivory);border-bottom:1px solid var(--c-line);display:none}
+  .Nav.is-open{display:block}
+  .Nav-list{flex-direction:column;gap:0;padding:.5rem var(--gutter) 1.5rem}
+  .Nav-link{display:block;padding:1rem 0;border-bottom:1px solid var(--c-line);font-size:1.125rem}
+  .Nav-mobileCta{display:block;margin-top:1.25rem}
+  .Nav-mobileCta .Button{width:100%}
+}
+@media (min-width:80em){.Nav{margin-left:auto}.Lang{margin-left:3rem}.Nav-mobileCta{display:none}.Brand{flex:none}}
+
+/* ---------- Lang switch ---------- */
+.Lang{display:flex;align-items:center;align-self:center;flex:none}
+.Lang-btn + .Lang-btn::before{content:"";position:absolute;left:0;top:50%;height:.9em;margin-top:-.45em;border-left:1px solid var(--c-line)}
+.Lang-btn{position:relative;min-width:2.25rem;min-height:2.5rem;padding:0 .5rem;border:0;background:transparent;font:500 .8125rem var(--f-sans);color:var(--c-muted);cursor:pointer;letter-spacing:.08em}
+.Lang-btn:hover{color:var(--c-charcoal)}
+.Lang-btn[aria-pressed="true"]{color:var(--c-charcoal);font-weight:600;text-decoration:underline;text-decoration-color:var(--c-terracotta);text-decoration-thickness:2px;text-underline-offset:.45em}
+.Lang-btn:focus-visible{box-shadow:0 0 0 3px var(--c-terracotta-ink)}
+@media (max-width:79.99em){.Lang{margin-left:auto}.Nav-toggle{order:3}}
+
+@media (max-width:30em){.Nav-toggle{padding:.5rem .8rem}.Nav-toggleText{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.Header-inner{gap:.6rem}}
+
+/* ---------- Diff ---------- */
+.Diff-head{display:grid;gap:1.5rem;margin-bottom:clamp(3rem,6vw,5rem)}
+@media (min-width:56em){.Diff-head{grid-template-columns:1fr 1fr;align-items:end}.Diff-head .Section-lead{margin:0}}
+.Diff-list{list-style:none;margin:0;padding:0;display:grid;gap:2.5rem;counter-reset:diff}
+@media (min-width:56em){.Diff-list{grid-template-columns:repeat(3,1fr);gap:clamp(2rem,4vw,4rem)}}
+.Diff-item{counter-increment:diff;padding-top:1.5rem;border-top:1px solid var(--c-line)}
+.Diff-item::before{content:"0" counter(diff);display:block;font-family:var(--f-serif);font-size:clamp(2rem,1.7rem + 1.2vw,2.75rem);line-height:1;color:var(--c-terracotta-ink);margin-bottom:1rem}
+.Diff-title{font-size:var(--fs-h3);margin-bottom:.75rem}
+.Diff-text{color:var(--c-muted);margin:0}
+
+@media (min-width:88em){.Header .Lang{margin-left:4.5rem}}
+
+/* ---------- Abroad ---------- */
+.Abroad{background:var(--c-white);border-block:1px solid var(--c-line)}
+.Abroad-grid{list-style:none;padding:0;margin:clamp(2.5rem,5vw,4rem) 0 0;display:grid;gap:2rem}
+@media (min-width:52em){.Abroad-grid{grid-template-columns:repeat(3,1fr);gap:3rem}}
+.Abroad-item{border-top:2px solid var(--c-terracotta);padding-top:1.25rem}
+.Abroad-title{font-size:var(--fs-h3);margin-bottom:.5rem}
+.Abroad-text{color:var(--c-muted);margin:0}
+.Abroad-note{margin:2.5rem 0 0;font-size:1rem;color:var(--c-muted)}
+
+/* ---------- Photo ---------- */
+.Photo{position:relative;margin:0;overflow:hidden;background:var(--c-sand)}
+.Photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.Photo img[src*="01-patio-olivo"]{object-position:40% 50%}
+.Photo img[src*="02-amigos-jardin"]{object-position:28% 50%}
+.Photo img[src*="03-patio-privado"]{object-position:40% 50%}
+.Photo img[src*="04-jardin-comunitario"]{object-position:30% 50%}
+.Photo img[src*="05-paseo-jardin"]{object-position:49% 50%}
+.Photo-note{position:absolute;right:.75rem;bottom:.75rem;z-index:2;font-size:.75rem;color:var(--c-white);background:rgba(48,53,47,.72);padding:.2rem .55rem;border-radius:2px}
+/* ---------- Hero ---------- */
+.Hero{position:relative;min-height:min(92vh,56rem);display:grid;color:var(--c-white);isolation:isolate}
+.Hero-media{position:absolute;inset:0;z-index:-2}
+.Hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(30,34,28,.78) 0%,rgba(30,34,28,.5) 50%,rgba(30,34,28,.15) 100%),linear-gradient(0deg,rgba(30,34,28,.55),transparent 45%)}
+.Hero-content{width:100%;align-self:end;padding-block:clamp(6rem,10vw,9rem) clamp(3.5rem,7vw,6rem)}
+.Hero-kicker{font-size:.9375rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.5rem;opacity:.95}
+.Hero-title{font-size:var(--fs-h1);max-width:none;font-weight:400}
+.Hero-title em{font-style:italic;color:#EBD3C4}
+.Hero-sub{font-size:var(--fs-lead);max-width:36rem;margin:1.75rem 0 0}
+.Hero-body{max-width:36rem;margin-top:1rem;opacity:.95}
+.Hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.25rem}
+.Hero-badge{display:inline-flex;align-items:center;gap:.6rem;margin-top:2.5rem;font-size:.9375rem;padding:.5rem .9rem;border:1px solid rgba(255,253,248,.5);border-radius:999px}
+.Hero-badge::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:#E3B9A3}
+
+/* ---------- Pillars ---------- */
+.Pillars{border-bottom:1px solid var(--c-line);background:var(--c-white)}
+.Pillars-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.Pillars-item{padding:2rem 1.5rem 2rem 0}
+.Pillars-item + .Pillars-item{padding-left:1.5rem;border-left:1px solid var(--c-line)}
+.Pillars-name{font-family:var(--f-serif);font-size:1.375rem;margin:0 0 .35rem}
+.Pillars-text{margin:0;color:var(--c-muted);font-size:1rem;line-height:1.5}
+@media (max-width:52em){
+  .Pillars-list{grid-template-columns:1fr 1fr}
+  .Pillars-item,.Pillars-item + .Pillars-item{padding:1.5rem 1rem 1.5rem 0;border-left:0}
+  .Pillars-item:nth-child(even){padding-left:1rem;border-left:1px solid var(--c-line)}
+  .Pillars-item:nth-child(n+3){border-top:1px solid var(--c-line)}
+}
+
+@media (max-width:24em){.Pillars-list{grid-template-columns:1fr}.Pillars-item:nth-child(even){padding-left:0;border-left:0}.Pillars-item+.Pillars-item{border-top:1px solid var(--c-line)}}
+
+/* ---------- Section ---------- */
+.Section{padding-block:var(--space-section)}
+.Section--sand{background:var(--c-sand)}
+.Section--dark{background:var(--c-charcoal);color:var(--c-ivory)}
+.Section--dark .u-eyebrow{color:#C9CDB4}
+.Section-title{font-size:var(--fs-h2);max-width:22ch;line-height:1.15}
+.Section-lead{font-size:clamp(1.0625rem, 1rem + .25vw, 1.1875rem);line-height:1.65;color:var(--c-muted);max-width:40rem;margin-top:1.5rem}
+.Section--dark .Section-lead{color:#D9D5CA}
+
+/* ---------- Philosophy ---------- */
+.Philosophy{display:grid;grid-template-columns:1fr;gap:3rem}
+.Philosophy-media{aspect-ratio:4/5}
+.Philosophy-list{list-style:none;padding:0;margin:2.5rem 0 0;counter-reset:mot}
+.Philosophy-item{counter-increment:mot;display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:1.25rem 0;border-top:1px solid var(--c-line)}
+.Philosophy-item::before{content:"0" counter(mot);font-family:var(--f-serif);font-size:1.25rem;color:var(--c-terracotta-ink)}
+.Philosophy-quote{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.125rem,1.05rem + .3vw,1.3rem);line-height:1.35;color:var(--c-olive-ink);margin:2.5rem 0 0;padding-left:1.5rem;border-left:2px solid var(--c-terracotta)}
+@media (min-width:56em){
+  .Philosophy{grid-template-columns:5fr 6fr;gap:clamp(3rem,7vw,7rem);align-items:center}
+  .Philosophy-media{margin-left:calc(var(--gutter) * -1)}
+}
+
+/* ---------- Ways ---------- */
+.Ways-head{display:grid;gap:1.5rem;margin-bottom:clamp(3rem,6vw,5rem)}
+@media (min-width:56em){.Ways-head{grid-template-columns:1fr 1fr;align-items:end}.Ways-head .Section-lead{margin:0}}
+.Ways-grid{display:grid;gap:clamp(2.5rem,4vw,3.5rem)}
+@media (min-width:52em){.Ways-grid{grid-template-columns:repeat(3,1fr)}.Ways-item:nth-child(2){margin-top:4rem}}
+.Ways-media{aspect-ratio:3/4;margin-bottom:1.5rem}
+.Ways-title{font-size:var(--fs-h3);margin-bottom:.6rem}
+.Ways-text{color:var(--c-muted);margin:0}
+
+@media (min-width:36em) and (max-width:55.99em){.Philosophy-media{aspect-ratio:3/2}}
+@media (min-width:36em) and (max-width:51.99em){.Ways-media{aspect-ratio:3/2}}
+
+/* ---------- Community ---------- */
+.Community{display:grid;grid-template-columns:1fr;background:var(--c-olive-ink);color:var(--c-ivory)}
+.Community-media{min-height:22rem}
+.Community-body{padding:clamp(3.5rem,7vw,7rem) var(--gutter)}
+.Community .u-eyebrow{color:#DCDFC9}
+.Community-statement{font-family:var(--f-serif);font-size:clamp(1.3rem,1.15rem + .8vw,1.8rem);line-height:1.35;max-width:30ch;margin:0 0 2rem}
+.Community-tags{list-style:none;margin:0 0 2rem;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
+.Community-tag{border:1px solid rgba(246,242,233,.55);padding:.4rem 1rem;border-radius:999px;font-size:1rem}
+.Community-note{font-size:.9375rem;color:#E4E2D6;max-width:34rem;margin:0;padding-top:1.5rem;border-top:1px solid rgba(246,242,233,.25)}
+@media (min-width:56em){.Community{grid-template-columns:1fr 1fr}.Community-body{max-width:40rem}}
+
+/* ---------- Project + Form ---------- */
+.Project{display:grid;gap:clamp(3rem,6vw,6rem)}
+@media (min-width:60em){.Project{grid-template-columns:1fr 1fr;align-items:start}}
+.Status{margin:2.5rem 0 0;padding:0;list-style:none}
+.Status-item{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1rem 0;border-top:1px solid rgba(246,242,233,.2)}
+.Status-dot{width:.9rem;height:.9rem;border-radius:50%;margin-top:.45rem;border:2px solid #C9CDB4}
+.Status-item.is-done .Status-dot{background:#C9CDB4}
+.Status-label{font-weight:600;display:block}
+.Status-meta{font-size:.9375rem;color:#C9C5BA}
+
+.Form{background:var(--c-ivory);color:var(--c-charcoal);padding:clamp(1.75rem,4vw,3rem);border-radius:var(--radius)}
+.Form-title{font-size:var(--fs-h3);margin-bottom:.5rem}
+.Form-intro{color:var(--c-muted);font-size:1rem;margin-bottom:1.75rem}
+.Form-field{margin-bottom:1.35rem}
+.Form-label{display:block;font-weight:600;margin-bottom:.4rem}
+.Form-optional{font-weight:400;color:var(--c-muted)}
+.Form-input,.Form-select,.Form-textarea{width:100%;min-height:3.25rem;padding:.75rem .9rem;font:inherit;font-size:1.0625rem;color:var(--c-charcoal);background:var(--c-white);border:1.5px solid #8C8676;border-radius:var(--radius)}
+.Form-textarea{min-height:7rem;resize:vertical}
+.Form-input:focus,.Form-select:focus,.Form-textarea:focus{border-color:var(--c-terracotta-ink)}
+.Form-input[aria-invalid="true"]{border-color:#A4262C}
+.Form-error{color:#A4262C;font-size:.9375rem;margin-top:.35rem;font-weight:500}
+.Form-fieldset{border:0;padding:0;margin:0 0 1.35rem}
+.Form-fieldset legend{font-weight:600;margin-bottom:.5rem;padding:0}
+.Form-choice{display:flex;gap:.75rem;align-items:flex-start;padding:.45rem 0;font-size:1rem;cursor:pointer}
+.Form-choice input{width:1.35rem;height:1.35rem;margin:.15rem 0 0;accent-color:var(--c-terracotta-ink);flex:none}
+.Form-legal{font-size:.875rem;color:var(--c-muted);line-height:1.5;margin:1rem 0 1.5rem}
+.Form-submit{width:100%}
+.Form-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.Form-submit[disabled]{opacity:.7;cursor:wait}
+.Form-success{display:none;padding:1.25rem;border-left:3px solid var(--c-olive);background:var(--c-white)}
+.Form.is-sent .Form-body{display:none}
+.Form.is-sent .Form-success{display:block}
+
+/* ---------- About ---------- */
+.About{display:grid;gap:clamp(2.5rem,6vw,6rem)}
+@media (min-width:56em){.About{grid-template-columns:6fr 5fr;align-items:center}}
+.About-media{aspect-ratio:5/4}
+.About-facts{list-style:none;padding:0;margin:2rem 0;display:grid;gap:1.25rem}
+.About-fact{padding-left:1.25rem;border-left:2px solid var(--c-terracotta)}
+.About-fact strong{display:block;font-family:var(--f-serif);font-weight:500;font-size:1.25rem}
+.About-disclaimer{font-size:.9375rem;color:var(--c-muted);background:var(--c-white);padding:1rem 1.25rem;border-radius:var(--radius)}
+
+/* ---------- FAQ ---------- */
+.Faq{display:grid;gap:2.5rem}
+@media (min-width:56em){.Faq{grid-template-columns:4fr 7fr;gap:5rem}.Faq-head{position:sticky;top:7rem;align-self:start}}
+.Faq-item{border-top:1px solid var(--c-line)}
+.Faq-item:last-child{border-bottom:1px solid var(--c-line)}
+.Faq-q{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:1.25rem 0;font-family:var(--f-serif);font-size:1.125rem;line-height:1.4;min-height:3.5rem}
+.Faq-q::-webkit-details-marker{display:none}
+.Faq-q::after{content:"+";font-family:var(--f-sans);font-size:1.75rem;font-weight:300;line-height:1;color:var(--c-terracotta-ink);flex:none;width:1.5rem;text-align:center;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.Faq-item[open] .Faq-q::after{transform:rotate(135deg)}
+.Faq-item[open] .Faq-a{animation:faqIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.Faq-a{padding:0 2.5rem 1.5rem 0;color:var(--c-muted);margin:0}
+
+/* ---------- Footer ---------- */
+.Footer{background:var(--c-charcoal);color:#D9D5CA;padding-block:4rem 2.5rem;font-size:1rem}
+.Footer a{color:var(--c-ivory)}
+.Footer-grid{display:grid;gap:2.5rem}
+@media (min-width:52em){.Footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.Footer .Brand{color:var(--c-ivory)}
+.Footer .Brand-sub{color:#C9CDB4;font-size:1.125rem}
+.Footer .Brand-logo{height:3.25rem}
+.Footer-text{margin-top:1.25rem;max-width:30rem}
+.Footer-title{font-family:var(--f-sans);font-size:.875rem;letter-spacing:.12em;text-transform:uppercase;color:#C9CDB4;margin-bottom:1rem;font-weight:600}
+.Footer-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.Footer-bottom{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(246,242,233,.15);font-size:.875rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+
+/* ---------- Sticky CTA móvil ---------- */
+.StickyCta{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:.75rem var(--gutter);background:rgba(246,242,233,.97);border-top:1px solid var(--c-line);transform:translateY(110%);transition:transform .25s}
+.StickyCta.is-visible{transform:none}
+.StickyCta .Button{width:100%}
+@media (min-width:80em){.StickyCta{display:none}}
+
+/* ---------- Movimiento ---------- */
+:root{--ease-out:cubic-bezier(.2,.7,.2,1);--ease-io:cubic-bezier(.7,0,.2,1)}
+.Section,.Abroad{--curtain:var(--c-ivory)}
+.Section--sand{--curtain:var(--c-sand)}
+.Community{--curtain:var(--c-olive-ink)}
+
+.Progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--c-terracotta);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+
+.Header{transition:box-shadow .4s var(--ease-out)}
+.Header.is-scrolled{box-shadow:0 10px 30px -18px rgba(48,53,47,.35)}
+
+@media (min-width:80em){
+  .Nav-link{border-bottom:0;background:linear-gradient(var(--c-terracotta),var(--c-terracotta)) 0 100%/0 2px no-repeat;transition:background-size .35s var(--ease-out)}
+  .Nav-link:hover,.Nav-link:focus-visible{background-size:100% 2px}
+}
+
+.Button{position:relative;overflow:hidden;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease-out),box-shadow .25s}
+.Button--primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s var(--ease-out)}
+.Button--primary:hover::after{transform:translateX(120%)}
+.Button:hover{transform:translateY(-2px)}
+.Button--primary:hover{box-shadow:0 12px 24px -12px rgba(138,86,64,.7)}
+
+.Hero-badge::before{animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(227,185,163,.65)}70%{box-shadow:0 0 0 .6rem rgba(227,185,163,0)}100%{box-shadow:0 0 0 0 rgba(227,185,163,0)}}
+
+/* Portada */
+.anim .Hero-media img{animation:heroZoom 16s var(--ease-out) both}
+@keyframes heroZoom{from{transform:scale(1.14)}to{transform:none}}
+.anim .Hero-content > *,.anim .Hero-title > span,.anim .Hero-title > em{animation:riseIn 1.1s var(--ease-out) both}
+.anim .Hero-title > span,.anim .Hero-title > em{display:inline-block}
+.anim .Hero-title{animation:none}
+.anim .Hero-kicker{animation-delay:.15s}
+.anim .Hero-title > span:nth-of-type(1){animation-delay:.3s}
+.anim .Hero-title > span:nth-of-type(2){animation-delay:.45s}
+.anim .Hero-title > em{animation-delay:.7s}
+.anim .Hero-sub{animation-delay:.9s}
+.anim .Hero-body{animation-delay:1.02s}
+.anim .Hero-actions{animation-delay:1.15s}
+.anim .Hero-badge{animation-delay:1.3s}
+@keyframes riseIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+/* Aparición al hacer scroll */
+.anim .rv{opacity:0;transform:translateY(32px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out);transition-delay:var(--d,0ms)}
+.anim .rv.is-in{opacity:1;transform:none}
+.anim .u-eyebrow.rv::before{transform:scaleX(0);transform-origin:0 50%;transition:transform 1s var(--ease-out) calc(var(--d,0ms) + .25s)}
+.anim .u-eyebrow.rv.is-in::before{transform:none}
+.anim .Diff-item.rv::before{transform:translateY(12px);opacity:0;transition:transform .9s var(--ease-out),opacity .9s;transition-delay:calc(var(--d,0ms) + .2s)}
+.anim .Diff-item.rv.is-in::before{transform:none;opacity:1}
+
+/* Fotos: cortina y asentamiento */
+.anim .rv-img::before{content:"";position:absolute;inset:-1px;z-index:1;background:var(--curtain);transform-origin:50% 0;transition:transform 1.2s var(--ease-io) var(--d,0ms)}
+.anim .rv-img.is-in::before{transform:scaleY(0)}
+.anim .rv-img img{scale:1.18;transition:scale 1.8s var(--ease-out) var(--d,0ms)}
+.anim .rv-img.is-in img{scale:1}
+.anim .rv-img[data-parallax].is-in img{scale:1.12}
+.anim .rv-img .Photo-note{opacity:0;transition:opacity .6s 1.1s}
+.anim .rv-img.is-in .Photo-note{opacity:1}
+@media (hover:hover){
+  .anim .Ways-item:hover .rv-img.is-in img{scale:1.06;transition-duration:.9s;transition-delay:0s}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .anim .rv,.anim .Hero-content > *,.anim .Hero-title > *{opacity:1!important;transform:none!important}
+  .anim .rv-img::before{display:none}
+  .anim .rv-img img{scale:1!important;translate:none!important}
+}
+</style>
+</head>
+<body>
+<a class="SkipLink" href="#contenido">Saltar al contenido</a>
+
+<header class="Header">
+  <div class="Progress" aria-hidden="true"></div>
+  <div class="u-container Header-inner">
+    <a class="Brand" href="#inicio" aria-label="Golden Chance Senior, ir al inicio">
+      <img class="Brand-logo" src="assets/logo-golden-chance.webp" width="543" height="214" alt="">
+      <span class="Brand-sub" aria-hidden="true">Senior</span>
+    </a>
+    <button class="Nav-toggle" type="button" aria-expanded="false" aria-controls="nav">
+      <span class="Nav-toggleIcon" aria-hidden="true"></span><span class="Nav-toggleText">Menú</span>
+    </button>
+    <nav class="Nav" id="nav" aria-label="Principal">
+      <ul class="Nav-list">
+        <li><a class="Nav-link" href="#filosofia">La filosofía</a></li>
+        <li><a class="Nav-link" href="#forma-de-vivir">Forma de vivir</a></li>
+        <li><a class="Nav-link" href="#comunidad">Comunidad</a></li>
+        <li><a class="Nav-link" href="#proyecto">El proyecto</a></li>
+        <li><a class="Nav-link" href="#quienes-somos">Quiénes somos</a></li>
+        <li><a class="Nav-link" href="#preguntas">Preguntas</a></li>
+        <li class="Nav-mobileCta"><a class="Button Button--primary" href="#contacto">Quiero conocer el proyecto</a></li>
+      </ul>
+    </nav>
+    <div class="Lang" role="group" aria-label="Idioma">
+      <button type="button" class="Lang-btn" data-lang="es" lang="es" aria-pressed="true">ES</button>
+      <button type="button" class="Lang-btn" data-lang="en" lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="Button Button--primary Header-cta" href="#contacto">Quiero conocer el proyecto</a>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- Portada -->
+  <section class="Hero" id="inicio" aria-labelledby="hero-title">
+    <figure class="Photo Hero-media">
+      <img src="assets/img/01-patio-olivo.webp" width="1920" height="1268" alt="Patio con olivo frente a una vivienda de líneas sencillas y grandes ventanales" fetchpriority="high">
+      <figcaption class="Photo-note">Imagen de referencia</figcaption>
+    </figure>
+    <div class="u-container Hero-content">
+      <p class="Hero-kicker">Golden Chance Senior</p>
+      <h1 class="Hero-title" id="hero-title"><span class="u-nowrap">Tu casa.</span> <span class="u-nowrap">Tu vida.</span><br><em>Tu futuro.</em></h1>
+      <p class="Hero-sub">Un nuevo proyecto residencial sénior en el norte de España, impulsado por Golden Chance.</p>
+      <p class="Hero-body">Porque el futuro no consiste en dejar de elegir, sino en seguir haciéndolo. Estamos desarrollando una nueva propuesta de vida para quienes quieren mantener su independencia y explorar una forma diferente de vivir esta etapa.</p>
+      <div class="Hero-actions">
+        <a class="Button Button--primary" href="#contacto">Quiero conocer el proyecto</a>
+        <a class="Button Button--light" href="#filosofia">Descubre la filosofía</a>
+      </div>
+      <p class="Hero-badge">Proyecto en desarrollo · Primera fase</p>
+    </div>
+  </section>
+
+  <!-- Pilares -->
+  <section class="Pillars" aria-label="Pilares del proyecto">
+    <div class="u-container"><ul class="Pillars-list">
+      <li class="Pillars-item"><h2 class="Pillars-name">Independencia</h2><p class="Pillars-text">Tu espacio, tus decisiones y tu ritmo de vida.</p></li>
+      <li class="Pillars-item"><h2 class="Pillars-name">Comunidad</h2><p class="Pillars-text">Compartir experiencias sin renunciar a tu intimidad.</p></li>
+      <li class="Pillars-item"><h2 class="Pillars-name">Seguridad</h2><p class="Pillars-text">Transparencia sobre cómo funcionará el proyecto.</p></li>
+      <li class="Pillars-item"><h2 class="Pillars-name">Futuro</h2><p class="Pillars-text">Planificar esta etapa con ilusión y criterio propio.</p></li>
+    </ul></div>
+  </section>
+
+  <!-- Filosofía -->
+  <section class="Section" id="filosofia" aria-labelledby="filosofia-title">
+    <div class="u-container Philosophy">
+      <figure class="Photo Philosophy-media">
+        <img src="assets/img/02-amigos-jardin-900.webp" srcset="assets/img/02-amigos-jardin-900.webp 900w, assets/img/02-amigos-jardin-1600.webp 1600w" sizes="(min-width:56em) 72vw, (min-width:36em) 100vw, 200vw" width="1600" height="997" alt="Un grupo de amigos conversa alrededor de una mesa en un jardín soleado" loading="lazy" decoding="async">
+        <figcaption class="Photo-note">Imagen de referencia</figcaption>
+      </figure>
+      <div>
+        <p class="u-eyebrow">La filosofía</p>
+        <h2 class="Section-title" id="filosofia-title">Envejecer no significa dejar de empezar.</h2>
+        <p class="Section-lead">Hay una etapa en la que el tiempo adquiere otro valor. Elegir dónde vivir, con quién compartir experiencias y cómo organizar el día a día se vuelve más importante que nunca.</p>
+        <ol class="Philosophy-list">
+          <li class="Philosophy-item"><span>Seguir tomando decisiones sobre tu propia vida.</span></li>
+          <li class="Philosophy-item"><span>Disfrutar de la tranquilidad de un espacio personal.</span></li>
+          <li class="Philosophy-item"><span>Tener la posibilidad de crear nuevas relaciones y experiencias.</span></li>
+        </ol>
+        <p class="Philosophy-quote">Una nueva etapa no tiene por qué significar renunciar a nada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forma de vivir -->
+  <section class="Section Section--sand" id="forma-de-vivir" aria-labelledby="vivir-title">
+    <div class="u-container">
+      <div class="Ways-head">
+        <div>
+          <p class="u-eyebrow">Una nueva forma de vivir</p>
+          <h2 class="Section-title" id="vivir-title">Vivir como tú decides.</h2>
+        </div>
+        <p class="Section-lead">Ni una residencia ni una urbanización convencional: una propuesta pensada para quienes quieren seguir eligiendo cómo vivir.</p>
+      </div>
+      <div class="Ways-grid">
+        <article class="Ways-item">
+          <figure class="Photo Ways-media">
+            <img src="assets/img/03-patio-privado-800.webp" srcset="assets/img/03-patio-privado-800.webp 800w, assets/img/03-patio-privado-1400.webp 1400w" sizes="(min-width:52em) 55vw, (min-width:36em) 110vw, 230vw" width="1400" height="902" alt="Patio privado con sofá, olivo y luz natural" loading="lazy" decoding="async">
+            <figcaption class="Photo-note">Imagen de referencia</figcaption>
+          </figure>
+          <h3 class="Ways-title">Tu espacio</h3>
+          <p class="Ways-text">Privacidad y autonomía en el día a día. Un hogar propio donde mantener tus costumbres, tus objetos y tu ritmo.</p>
+        </article>
+        <article class="Ways-item">
+          <figure class="Photo Ways-media">
+            <img src="assets/img/04-jardin-comunitario-800.webp" srcset="assets/img/04-jardin-comunitario-800.webp 800w, assets/img/04-jardin-comunitario-1400.webp 1400w" sizes="(min-width:52em) 55vw, (min-width:36em) 110vw, 230vw" width="1400" height="952" alt="Vecinos jugando a la petanca en un jardín comunitario junto a un porche de madera" loading="lazy" decoding="async">
+            <figcaption class="Photo-note">Imagen de referencia</figcaption>
+          </figure>
+          <h3 class="Ways-title">Tu comunidad</h3>
+          <p class="Ways-text">La posibilidad de compartir momentos y experiencias con personas que buscan lo mismo que tú, cuando tú lo decidas.</p>
+        </article>
+        <article class="Ways-item">
+          <figure class="Photo Ways-media">
+            <img src="assets/img/05-paseo-jardin-900.webp" srcset="assets/img/05-paseo-jardin-900.webp 900w, assets/img/05-paseo-jardin-1600.webp 1600w" sizes="(min-width:52em) 55vw, (min-width:36em) 110vw, 230vw" width="1600" height="829" alt="Una mujer pasea por un camino de piedra entre jardines" loading="lazy" decoding="async">
+            <figcaption class="Photo-note">Imagen de referencia</figcaption>
+          </figure>
+          <h3 class="Ways-title">Tu manera de vivir</h3>
+          <p class="Ways-text">Un proyecto pensado para mantener intacta la capacidad de elegir: hoy, mañana y en los años que vienen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comunidad -->
+  <section class="Community" id="comunidad" aria-labelledby="comunidad-title">
+    <figure class="Photo Community-media">
+      <img src="assets/img/06-terraza-compartida-800.webp" srcset="assets/img/06-terraza-compartida-800.webp 800w, assets/img/06-terraza-compartida-1392.webp 1392w" sizes="(min-width:56em) 55vw, 100vw" width="1392" height="1288" alt="Terraza compartida con mesa larga, pérgola y vistas al atardecer" loading="lazy" decoding="async">
+      <figcaption class="Photo-note">Imagen de referencia</figcaption>
+    </figure>
+    <div class="Community-body">
+      <p class="u-eyebrow">El modelo de comunidad</p>
+      <h2 class="u-visuallyHidden" id="comunidad-title">El modelo de comunidad</h2>
+      <p class="Community-statement">Un lugar donde tener tu propio espacio y, al mismo tiempo, la oportunidad de compartir una forma de vida con personas que tienen inquietudes similares.</p>
+      <ul class="Community-tags" aria-label="Ideas que guían la comunidad">
+        <li class="Community-tag">Convivencia</li>
+        <li class="Community-tag">Participación</li>
+        <li class="Community-tag">Actividades compartidas</li>
+        <li class="Community-tag">Intimidad</li>
+      </ul>
+      <p class="Community-note">Los espacios comunes, servicios y la organización de la comunidad se definirán junto con el proyecto. Solo los comunicaremos cuando estén confirmados.</p>
+    </div>
+  </section>
+
+  <!-- Diferencias -->
+  <section class="Section" id="diferentes" aria-labelledby="diff-title">
+    <div class="u-container">
+      <div class="Diff-head">
+        <div>
+          <p class="u-eyebrow">Qué nos hace diferentes</p>
+          <h2 class="Section-title" id="diff-title">Tú decides cómo vivir. Nosotros te acompañamos.</h2>
+        </div>
+        <p class="Section-lead">Un proyecto de vida en comunidad, con la experiencia de un equipo inmobiliario y jurídico detrás.</p>
+      </div>
+      <ol class="Diff-list">
+        <li class="Diff-item">
+          <h3 class="Diff-title">Un proyecto en manos de profesionales</h3>
+          <p class="Diff-text">Detrás hay un equipo inmobiliario y un despacho de abogados con más de 30 años de experiencia. Nos ocupamos de la gestión técnica, jurídica e inmobiliaria para que tú puedas centrarte en decidir cómo quieres vivir.</p>
+        </li>
+        <li class="Diff-item">
+          <h3 class="Diff-title">Te acompañamos con tu vivienda actual</h3>
+          <p class="Diff-text">Dar este paso suele empezar por una pregunta: ¿qué hago con mi casa? Si tienes una vivienda en España, te ayudamos a venderla o alquilarla, y te asesoramos sobre cómo encaja este cambio en la planificación de tu patrimonio y tu herencia.</p>
+        </li>
+        <li class="Diff-item">
+          <h3 class="Diff-title">En el norte de España, abierto a quien llega de fuera</h3>
+          <p class="Diff-text">Veranos suaves, paisaje verde y la tranquilidad del norte. Un proyecto pensado también para quienes llegan de otros países, con información en español y en inglés.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Proyecto y contacto -->
+  <section class="Section Section--dark" id="proyecto" aria-labelledby="proyecto-title">
+    <div class="u-container Project">
+      <div>
+        <p class="u-eyebrow">El proyecto</p>
+        <h2 class="Section-title" id="proyecto-title">Un proyecto que empieza contigo.</h2>
+        <p class="Section-lead">Estamos trabajando en una nueva propuesta residencial que pone en el centro la independencia, la comunidad y la planificación del futuro.</p>
+        <p class="Section-lead">En esta primera etapa queremos compartir la visión del proyecto, escuchar a las personas interesadas y ofrecer información transparente a medida que se definan sus características.</p>
+        <h3 class="u-visuallyHidden">Estado del proyecto</h3>
+        <ul class="Status">
+          <li class="Status-item is-done"><span class="Status-dot" aria-hidden="true"></span><span><span class="Status-label">Visión y concepto</span><span class="Status-meta">Definidos</span></span></li>
+          <li class="Status-item"><span class="Status-dot" aria-hidden="true"></span><span><span class="Status-label">Ubicación</span><span class="Status-meta">Norte de España · emplazamiento por confirmar</span></span></li>
+          <li class="Status-item"><span class="Status-dot" aria-hidden="true"></span><span><span class="Status-label">Modelo jurídico y condiciones</span><span class="Status-meta">En definición</span></span></li>
+          <li class="Status-item"><span class="Status-dot" aria-hidden="true"></span><span><span class="Status-label">Proyecto arquitectónico</span><span class="Status-meta">Próximamente</span></span></li>
+        </ul>
+      </div>
+
+      <div class="Form" id="contacto">
+        <div class="Form-body">
+          <h3 class="Form-title">Quiero conocer el proyecto</h3>
+          <p class="Form-intro">Déjanos tus datos y te enviaremos novedades del proyecto a medida que se confirmen. Sin compromiso.</p>
+          <form id="lead-form" novalidate>
+            <div class="Form-field">
+              <label class="Form-label" for="f-name">Nombre</label>
+              <input class="Form-input" id="f-name" name="nombre" type="text" autocomplete="name" required aria-describedby="e-name">
+              <p class="Form-error" id="e-name" hidden>Escribe tu nombre.</p>
+            </div>
+            <div class="Form-field">
+              <label class="Form-label" for="f-email">Correo electrónico</label>
+              <input class="Form-input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+              <p class="Form-error" id="e-email" hidden>Escribe un correo válido, por ejemplo nombre@correo.es.</p>
+            </div>
+            <div class="Form-field">
+              <label class="Form-label" for="f-phone">Teléfono <span class="Form-optional">(opcional)</span></label>
+              <input class="Form-input" id="f-phone" name="telefono" type="tel" autocomplete="tel" inputmode="tel">
+            </div>
+            <fieldset class="Form-fieldset">
+              <legend>¿Qué te interesa recibir?</legend>
+              <label class="Form-choice"><input type="checkbox" name="interes" value="novedades"> Novedades del proyecto</label>
+              <label class="Form-choice"><input type="checkbox" name="interes" value="dossier"> El dossier informativo cuando esté disponible</label>
+              <label class="Form-choice"><input type="checkbox" name="interes" value="llamada"> Una llamada o videollamada para resolver dudas</label>
+            </fieldset>
+            <div class="Form-field">
+              <label class="Form-label" for="f-country">País de residencia <span class="Form-optional">(opcional)</span></label>
+              <input class="Form-input" id="f-country" name="pais" type="text" autocomplete="country-name">
+            </div>
+            <div class="Form-field">
+              <label class="Form-label" for="f-lang">Idioma de contacto</label>
+              <select class="Form-select" id="f-lang" name="idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+            <div class="Form-field">
+              <label class="Form-label" for="f-who">Me intereso por el proyecto…</label>
+              <select class="Form-select" id="f-who" name="perfil">
+                <option value="">Prefiero no indicarlo</option>
+                <option>Para mí</option>
+                <option>Para mí y mi pareja</option>
+                <option>Para un familiar</option>
+              </select>
+            </div>
+            <label class="Form-choice">
+              <input type="checkbox" id="f-privacy" name="privacidad" required aria-describedby="e-privacy">
+              <span>He leído y acepto la <a href="legal.html#privacidad" target="_blank" rel="noopener">política de privacidad</a>.</span>
+            </label>
+            <p class="Form-error" id="e-privacy" hidden>Necesitamos tu aceptación para poder contactarte.</p>
+            <p class="Form-legal">Responsable: GOLDENCHANCE, S.L. Finalidad: informarte sobre el proyecto Golden Chance Senior. Legitimación: tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, supresión y demás en cualquier momento. Más información en la <a href="legal.html#privacidad" target="_blank" rel="noopener">política de privacidad</a>.</p>
+            <p class="Form-hp" aria-hidden="true"><label>No rellenar <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
+            <p class="Form-error" id="e-send" role="alert" hidden><span>No hemos podido enviar tu solicitud. Inténtalo de nuevo o escríbenos a</span> <a href="mailto:info@goldenchance.es">info@goldenchance.es</a>.</p>
+            <button class="Button Button--primary Form-submit" type="submit">Enviar solicitud</button>
+          </form>
+        </div>
+        <div class="Form-success" role="status" tabindex="-1" id="form-success">
+          <h3 class="Form-title">Gracias por tu interés</h3>
+          <p>Hemos recibido tu solicitud. Te escribiremos cuando haya novedades del proyecto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiénes somos -->
+  <section class="Section" id="quienes-somos" aria-labelledby="about-title">
+    <div class="u-container About">
+      <div>
+        <p class="u-eyebrow">Quién está detrás</p>
+        <h2 class="Section-title" id="about-title">Un proyecto impulsado por Golden Chance.</h2>
+        <p class="Section-lead">Golden Chance es una inmobiliaria de Burgos que acompaña a cada cliente con trato personalizado y seguridad en cada operación.</p>
+        <ul class="About-facts">
+          <li class="About-fact"><strong>Trato personalizado</strong>Atención directa y cercana en cada paso.</li>
+          <li class="About-fact"><strong>Respaldo jurídico</strong>Un despacho de abogados con más de 30 años de experiencia.</li>
+          <li class="About-fact"><strong>Patrimonio y herencias</strong>Asesoramiento en propiedades y planificación patrimonial.</li>
+        </ul>
+        <p class="About-disclaimer">El equipo técnico y las entidades colaboradoras específicas del proyecto sénior se presentarán cuando estén confirmados.</p>
+      </div>
+      <figure class="Photo About-media">
+        <img src="assets/img/07-materiales-900.webp" srcset="assets/img/07-materiales-900.webp 900w, assets/img/07-materiales-1600.webp 1600w" sizes="(min-width:56em) 60vw, 240vw" width="1600" height="823" alt="Muestras de madera de olivo, piedra, lino y cerámica" loading="lazy" decoding="async">
+        <figcaption class="Photo-note">Imagen de referencia</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Internacional -->
+  <section class="Section Abroad" id="internacional" aria-labelledby="abroad-title">
+    <div class="u-container">
+      <p class="u-eyebrow">Desde cualquier lugar</p>
+      <h2 class="Section-title" id="abroad-title">¿Vives fuera de España?</h2>
+      <p class="Section-lead">Este proyecto también está pensado para personas de otros países que quieren vivir su próxima etapa en España.</p>
+      <ul class="Abroad-grid">
+        <li class="Abroad-item"><h3 class="Abroad-title">En tu idioma</h3><p class="Abroad-text">Información y atención en español y en inglés.</p></li>
+        <li class="Abroad-item"><h3 class="Abroad-title">Respaldo jurídico en España</h3><p class="Abroad-text">Golden Chance cuenta con el respaldo de un despacho de abogados con más de 30 años de experiencia.</p></li>
+        <li class="Abroad-item"><h3 class="Abroad-title">Trámites explicados</h3><p class="Abroad-text">Cuando se definan las condiciones, te explicaremos qué hace falta en cada paso, por ejemplo, el NIE.</p></li>
+      </ul>
+      <p class="Abroad-note">¿Prefieres hablarlo cara a cara? Puedes pedir una videollamada desde el <a href="#contacto">formulario</a>.</p>
+    </div>
+  </section>
+
+  <!-- Preguntas frecuentes -->
+  <section class="Section Section--sand" id="preguntas" aria-labelledby="faq-title">
+    <div class="u-container Faq">
+      <div class="Faq-head">
+        <p class="u-eyebrow">Preguntas frecuentes</p>
+        <h2 class="Section-title" id="faq-title">Lo que probablemente te estás preguntando.</h2>
+        <p class="Section-lead">Si tu duda no está aquí, <a href="#contacto">escríbenos</a>.</p>
+      </div>
+      <div>
+        <details class="Faq-item"><summary class="Faq-q">¿Qué es Golden Chance Senior?</summary><p class="Faq-a">Es un nuevo proyecto residencial impulsado por Golden Chance para personas que quieren vivir su etapa sénior con independencia, en un entorno que facilite la vida en comunidad.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Es una residencia de mayores?</summary><p class="Faq-a">No. No es un centro asistencial. Es una propuesta de vivienda pensada para personas autónomas que quieren seguir decidiendo cómo vivir.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Dónde estará ubicado el proyecto?</summary><p class="Faq-a">El proyecto está previsto en el norte de España. El emplazamiento concreto está pendiente de confirmación; lo compartiremos en cuanto esté definido.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Cómo funcionará la cooperativa?</summary><p class="Faq-a">El modelo jurídico y las condiciones de participación se encuentran en fase de definición. Facilitaremos información detallada cuando estén confirmados.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Seré propietario de mi vivienda?</summary><p class="Faq-a">Depende del modelo jurídico que se adopte, que todavía está en definición. Lo explicaremos con claridad —qué derechos tendrá cada participante y en qué condiciones— antes de pedir ningún compromiso.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Cuánto costará participar?</summary><p class="Faq-a">Aún no hay condiciones económicas definidas. No publicaremos cifras hasta que estén confirmadas y respaldadas por el proyecto.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Qué servicios y espacios comunes tendrá?</summary><p class="Faq-a">Se definirán junto con el proyecto arquitectónico. Solo anunciaremos los espacios y servicios que vayan a existir realmente.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Cuándo se podrá acceder al proyecto?</summary><p class="Faq-a">Todavía no hay calendario. Estamos en la primera fase; informaremos de cada hito a las personas inscritas.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Qué hago con mi vivienda actual?</summary><p class="Faq-a">Depende de tu situación y de tus planes. Si tu vivienda está en España, Golden Chance puede ayudarte a venderla o alquilarla. También te asesoramos sobre cómo encaja este paso en la planificación de tu patrimonio y tu herencia.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Puedo participar si no vivo en España?</summary><p class="Faq-a">Queremos que el proyecto esté abierto también a personas que viven fuera de España. Las condiciones de participación aún están en definición; cuando se confirmen, explicaremos con claridad los requisitos y trámites, como el NIE (número de identidad de extranjero).</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿En qué idiomas puedo recibir información?</summary><p class="Faq-a">En español y en inglés. Indícanos tu idioma preferido en el formulario.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Cómo puedo recibir información?</summary><p class="Faq-a">Rellena el <a href="#contacto">formulario</a> y te enviaremos las novedades a medida que se confirmen. Sin compromiso.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="Footer">
+  <div class="u-container">
+    <div class="Footer-grid">
+      <div>
+        <a class="Brand" href="#inicio"><img class="Brand-logo" src="assets/logo-golden-chance-oro-marfil.webp" width="543" height="214" alt="Golden Chance"><span class="Brand-sub">Senior</span></a>
+        <p class="Footer-text">Una nueva forma de vivir. A tu manera. Proyecto en desarrollo: la información se actualizará a medida que se confirme.</p>
+      </div>
+      <div>
+        <p class="Footer-title">Contacto</p>
+        <ul class="Footer-list">
+          <li><a href="#contacto">Solicitar información</a></li>
+          <li><a href="mailto:info@goldenchance.es">info@goldenchance.es</a></li>
+          <li><a href="tel:+34600249279">+34 600 249 279</a></li>
+          <li><a href="https://www.goldenchance.es/">goldenchance.es</a></li>
+          <li>Burgos</li>
+        </ul>
+      </div>
+      <div>
+        <p class="Footer-title">Legal</p>
+        <ul class="Footer-list">
+          <li><a href="legal.html#privacidad">Política de privacidad</a></li>
+          <li><a href="legal.html#aviso-legal">Aviso legal</a></li>
+          <li><a href="legal.html#cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="Footer-bottom">
+      <span>© 2026 Golden Chance</span>
+      <span>Las imágenes son de referencia y no corresponden al proyecto final.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="StickyCta" aria-hidden="true" id="sticky-cta">
+  <a class="Button Button--primary" href="#contacto" tabindex="-1">Quiero conocer el proyecto</a>
+</div>
+
+<script>
+(function(){
+  // Menú móvil
+  var toggle=document.querySelector('.Nav-toggle'), nav=document.getElementById('nav');
+  function closeNav(){nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
+  toggle.addEventListener('click',function(){
+    var open=nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded',String(open));
+  });
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))closeNav();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('is-open')){closeNav();toggle.focus();}});
+
+  // CTA fija en móvil: aparece tras el hero, se oculta junto al formulario
+  var sticky=document.getElementById('sticky-cta'), hero=document.getElementById('inicio'), form=document.getElementById('contacto');
+  var pastHero=false, nearForm=false;
+  function upd(){sticky.classList.toggle('is-visible',pastHero&&!nearForm);}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){pastHero=!en[0].isIntersecting;upd();}).observe(hero);
+    new IntersectionObserver(function(en){nearForm=en[0].isIntersecting;upd();}).observe(form);
+  }
+
+  // Formulario (envío vía FormSubmit)
+  var FORM_ENDPOINT='https://formsubmit.co/ajax/info@goldenchance.es';
+  var f=document.getElementById('lead-form'), sendErr=document.getElementById('e-send'), btn=f.querySelector('.Form-submit');
+  function setErr(input,errId,bad){
+    var el=document.getElementById(errId);
+    el.hidden=!bad; input.setAttribute('aria-invalid',bad?'true':'false');
+  }
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=f.nombre, mail=f.email, priv=document.getElementById('f-privacy');
+    var badName=!name.value.trim(), badMail=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim()), badPriv=!priv.checked;
+    setErr(name,'e-name',badName); setErr(mail,'e-email',badMail); setErr(priv,'e-privacy',badPriv);
+    var first=badName?name:badMail?mail:badPriv?priv:null;
+    if(first){first.focus();return;}
+    if(f._honey.value){return;}
+    var INT={novedades:'Novedades del proyecto',dossier:'Dossier informativo',llamada:'Llamada o videollamada'}, WHO=['—','Para sí','Para sí y su pareja','Para un familiar'];
+    var intereses=[].slice.call(f.querySelectorAll('input[name="interes"]:checked')).map(function(c){return INT[c.value];});
+    var data={
+      _subject:'Nueva solicitud · Golden Chance Senior',
+      _template:'table',
+      'Nombre':name.value.trim(),
+      'Correo electrónico':mail.value.trim(),
+      'Teléfono':f.telefono.value.trim()||'—',
+      'País de residencia':f.pais.value.trim()||'—',
+      'Idioma de contacto':f.idioma.value==='en'?'Inglés':'Español',
+      'Quiere recibir':intereses.join(' · ')||'—',
+      'Se interesa':WHO[f.perfil.selectedIndex],
+      'Idioma de la web':document.documentElement.lang==='en'?'Inglés':'Español',
+      'Acepta la política de privacidad':'Sí'
+    };
+    var label=btn.textContent; btn.disabled=true; btn.textContent=document.documentElement.lang==='en'?'Sending…':'Enviando…'; sendErr.hidden=true;
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)!=='true')throw new Error(j.message||r.status);});})
+      .then(function(){
+        document.getElementById('contacto').classList.add('is-sent');
+        document.getElementById('form-success').focus();
+      })
+      .catch(function(){sendErr.hidden=false;sendErr.setAttribute('tabindex','-1');sendErr.focus();})
+      .then(function(){btn.disabled=false;btn.textContent=label;});
+  });
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement, header=document.querySelector('.Header'), bar=document.querySelector('.Progress');
+  if(root.classList.contains('anim')){
+    var groups='.Pillars-list,.Philosophy-list,.Ways-grid,.Diff-list,.Abroad-grid,.Status,.About-facts,.Faq > div:last-child';
+    var singles='.u-eyebrow,.Section-title,.Section-lead,.Philosophy-quote,.Community-statement,.Community-tags,.Community-note,.Form,.About-disclaimer,.Abroad-note';
+    document.querySelectorAll(groups).forEach(function(g){
+      [].forEach.call(g.children,function(c,i){c.classList.add('rv');c.style.setProperty('--d',i*110+'ms');});
+    });
+    document.querySelectorAll(singles).forEach(function(el){
+      if(!el.classList.contains('rv')&&!el.closest('.Hero')) el.classList.add('rv');
+    });
+    document.querySelectorAll('.Photo:not(.Hero-media)').forEach(function(p){p.classList.add('rv-img');});
+    document.querySelectorAll('.Ways-grid .Photo').forEach(function(p,i){p.style.setProperty('--d',i*140+'ms');});
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -10% 0px',threshold:.12});
+    document.querySelectorAll('.rv,.rv-img').forEach(function(el){io.observe(el);});
+  }
+
+  // Parallax: lecturas primero, escrituras después
+  var parallax=[], visible=new Set();
+  if(root.classList.contains('anim')){
+    document.querySelectorAll('.Philosophy-media,.Community-media,.About-media').forEach(function(p){
+      p.setAttribute('data-parallax',''); parallax.push({el:p,img:p.querySelector('img')});
+    });
+    var pio=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){e.isIntersecting?visible.add(e.target):visible.delete(e.target);});
+    });
+    parallax.forEach(function(p){pio.observe(p.el);});
+  }
+
+  var scrolled=null, ticking=false;
+  function frame(){
+    ticking=false;
+    var y=window.scrollY, vh=window.innerHeight, max=root.scrollHeight-vh;
+    var shifts=parallax.filter(function(p){return visible.has(p.el);}).map(function(p){
+      var r=p.el.getBoundingClientRect(); return {img:p.img, v:((r.top+r.height/2-vh/2)/vh)*-36};
+    });
+    if(bar) bar.style.transform='scaleX('+(max>0?Math.min(1,y/max):0)+')';
+    var s=y>40; if(s!==scrolled){scrolled=s; header.classList.toggle('is-scrolled',s);}
+    shifts.forEach(function(p){p.img.style.translate='0 '+p.v.toFixed(1)+'px';});
+  }
+  function request(){if(!ticking){ticking=true;requestAnimationFrame(frame);}}
+  addEventListener('scroll',request,{passive:true});
+  addEventListener('resize',request);
+  frame();
+})();
+</script>
+<script>
+/* Traducción ES → EN (botón EN o ?lang=en) */
+(function(){
+var EN={
+"Golden Chance Senior · Una nueva forma de vivir":"Golden Chance Senior · A new way of living",
+"Golden Chance Senior: un nuevo proyecto residencial sénior en el norte de España, impulsado por Golden Chance. Independencia, comunidad y futuro. Proyecto en desarrollo.":"Golden Chance Senior: a new senior living project in northern Spain, led by Golden Chance. Independence, community and the future. Project in development.",
+"Saltar al contenido":"Skip to content",
+"Golden Chance Senior, ir al inicio":"Golden Chance Senior, go to home page",
+
+"Menú":"Menu","Principal":"Main","Idioma":"Language",
+"La filosofía":"Philosophy","Forma de vivir":"Way of living","Comunidad":"Community","El proyecto":"The project","Quiénes somos":"About us","Preguntas":"FAQ",
+"Quiero conocer el proyecto":"I'd like to know more",
+"Imagen de referencia":"Reference image",
+"Tu casa.":"Your home.","Tu vida.":"Your life.","Tu futuro.":"Your future.",
+"Un nuevo proyecto residencial sénior en el norte de España, impulsado por Golden Chance.":"A new senior living project in northern Spain, led by Golden Chance.",
+"Porque el futuro no consiste en dejar de elegir, sino en seguir haciéndolo. Estamos desarrollando una nueva propuesta de vida para quienes quieren mantener su independencia y explorar una forma diferente de vivir esta etapa.":"Because the future isn't about giving up choices — it's about continuing to make them. We are creating a new way of life for people who want to stay independent and approach this stage of life differently.",
+"Descubre la filosofía":"Discover the philosophy",
+"Proyecto en desarrollo · Primera fase":"Project in development · Phase one",
+"Pilares del proyecto":"Project pillars",
+"Independencia":"Independence","Tu espacio, tus decisiones y tu ritmo de vida.":"Your space, your decisions, your own pace.",
+"Compartir experiencias sin renunciar a tu intimidad.":"Sharing experiences without giving up your privacy.",
+"Seguridad":"Peace of mind","Transparencia sobre cómo funcionará el proyecto.":"Clear information on how the project will work.",
+"Futuro":"Future","Planificar esta etapa con ilusión y criterio propio.":"Planning this stage with enthusiasm, on your own terms.",
+"Envejecer no significa dejar de empezar.":"Growing older doesn't mean an end to new beginnings.",
+"Hay una etapa en la que el tiempo adquiere otro valor. Elegir dónde vivir, con quién compartir experiencias y cómo organizar el día a día se vuelve más importante que nunca.":"There comes a stage in life when time takes on a new value. Choosing where to live, who to share experiences with and how to shape your days matters more than ever.",
+"Seguir tomando decisiones sobre tu propia vida.":"Keep making your own decisions about your life.",
+"Disfrutar de la tranquilidad de un espacio personal.":"Enjoy the calm of a space of your own.",
+"Tener la posibilidad de crear nuevas relaciones y experiencias.":"Have the chance to make new friends and enjoy new experiences.",
+"Una nueva etapa no tiene por qué significar renunciar a nada.":"A new chapter doesn't have to mean giving anything up.",
+"Una nueva forma de vivir":"A new way of living","Vivir como tú decides.":"Live the way you choose.",
+"Ni una residencia ni una urbanización convencional: una propuesta pensada para quienes quieren seguir eligiendo cómo vivir.":"Neither a care home nor a conventional residential development: a project for people who want to keep choosing how they live.",
+"Tu espacio":"Your space","Privacidad y autonomía en el día a día. Un hogar propio donde mantener tus costumbres, tus objetos y tu ritmo.":"Privacy and autonomy in everyday life. A home of your own, with your routines, your belongings and your own pace.",
+"Tu comunidad":"Your community","La posibilidad de compartir momentos y experiencias con personas que buscan lo mismo que tú, cuando tú lo decidas.":"The chance to share moments and experiences with people looking for the same things as you — whenever you choose.",
+"Tu manera de vivir":"Your way of life","Un proyecto pensado para mantener intacta la capacidad de elegir: hoy, mañana y en los años que vienen.":"A project designed to keep your freedom of choice intact: today, tomorrow and in the years to come.",
+"El modelo de comunidad":"The community model",
+"Un lugar donde tener tu propio espacio y, al mismo tiempo, la oportunidad de compartir una forma de vida con personas que tienen inquietudes similares.":"A place where you have your own space and, at the same time, the chance to share a way of life with like-minded people.",
+"Ideas que guían la comunidad":"Ideas that guide the community",
+"Convivencia":"Living together","Participación":"Participation","Actividades compartidas":"Shared activities","Intimidad":"Privacy",
+"Los espacios comunes, servicios y la organización de la comunidad se definirán junto con el proyecto. Solo los comunicaremos cuando estén confirmados.":"Shared spaces, services and how the community is organised will be defined as the project develops. We will only announce them once they are confirmed.",
+"Un proyecto que empieza contigo.":"A project that starts with you.",
+"Estamos trabajando en una nueva propuesta residencial que pone en el centro la independencia, la comunidad y la planificación del futuro.":"We are working on a new residential project built around independence, community and planning for the future.",
+"En esta primera etapa queremos compartir la visión del proyecto, escuchar a las personas interesadas y ofrecer información transparente a medida que se definan sus características.":"In this first phase, we want to share our vision, listen to those who are interested and provide clear information as the details take shape.",
+"Estado del proyecto":"Project status","Visión y concepto":"Vision and concept","Definidos":"Defined","Ubicación":"Location","Norte de España · emplazamiento por confirmar":"Northern Spain · exact site to be confirmed","Modelo jurídico y condiciones":"Legal structure and terms","En definición":"Being defined","Proyecto arquitectónico":"Architectural design","Próximamente":"Coming soon",
+"Déjanos tus datos y te enviaremos novedades del proyecto a medida que se confirmen. Sin compromiso.":"Leave your details and we will keep you updated as plans are confirmed. No obligation.",
+"Nombre":"Name","Escribe tu nombre.":"Please enter your name.",
+"Correo electrónico":"Email","Escribe un correo válido, por ejemplo nombre@correo.es.":"Please enter a valid email address, for example name@email.com.",
+"Teléfono":"Phone","(opcional)":"(optional)",
+"País de residencia":"Country of residence","Idioma de contacto":"Preferred language",
+"¿Qué te interesa recibir?":"What would you like to receive?",
+"Novedades del proyecto":"Project updates","El dossier informativo cuando esté disponible":"The information pack when it is available","Una llamada o videollamada para resolver dudas":"A phone or video call to answer my questions",
+"Me intereso por el proyecto…":"I'm interested in the project…","Prefiero no indicarlo":"I'd rather not say","Para mí":"For me","Para mí y mi pareja":"For me and my partner","Para un familiar":"For a relative",
+"He leído y acepto la":"I have read and accept the","política de privacidad":"privacy policy",
+"Necesitamos tu aceptación para poder contactarte.":"We need your consent to contact you.",
+"Responsable: GOLDENCHANCE, S.L. Finalidad: informarte sobre el proyecto Golden Chance Senior. Legitimación: tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, supresión y demás en cualquier momento. Más información en la":"Data controller: GOLDENCHANCE, S.L. Purpose: to keep you informed about the Golden Chance Senior project. Legal basis: your consent. You may exercise your rights of access, rectification and erasure, among others, at any time. Find out more in our",
+
+"Enviar solicitud":"Send request","Gracias por tu interés":"Thank you for your interest",
+"Hemos recibido tu solicitud. Te escribiremos cuando haya novedades del proyecto.":"We have received your request. We will write to you when there is news about the project.",
+"No hemos podido enviar tu solicitud. Inténtalo de nuevo o escríbenos a":"We couldn't send your request. Please try again or email us at",
+
+"Quién está detrás":"Who is behind it","Un proyecto impulsado por Golden Chance.":"A project led by Golden Chance.",
+"Golden Chance es una inmobiliaria de Burgos que acompaña a cada cliente con trato personalizado y seguridad en cada operación.":"Golden Chance is an estate agency based in Burgos, Spain, offering every client personal attention and secure transactions.",
+"Trato personalizado":"Personal attention","Atención directa y cercana en cada paso.":"Direct, friendly support at every step.",
+"Respaldo jurídico":"Legal backing","Un despacho de abogados con más de 30 años de experiencia.":"A law firm with more than 30 years of experience.",
+"Patrimonio y herencias":"Assets and inheritance","Asesoramiento en propiedades y planificación patrimonial.":"Property advice and estate planning.",
+"El equipo técnico y las entidades colaboradoras específicas del proyecto sénior se presentarán cuando estén confirmados.":"The technical team and partner organisations for Golden Chance Senior will be introduced once confirmed.",
+"Qué nos hace diferentes":"What makes us different","Tú decides cómo vivir. Nosotros te acompañamos.":"You decide how to live. We're with you every step of the way.",
+"Un proyecto de vida en comunidad, con la experiencia de un equipo inmobiliario y jurídico detrás.":"A community living project, backed by an experienced property and legal team.",
+"Un proyecto en manos de profesionales":"A professionally managed project",
+"Detrás hay un equipo inmobiliario y un despacho de abogados con más de 30 años de experiencia. Nos ocupamos de la gestión técnica, jurídica e inmobiliaria para que tú puedas centrarte en decidir cómo quieres vivir.":"Behind it are a property team and a law firm with more than 30 years of experience. We take care of the technical, legal and property side, so that you can focus on deciding how you want to live.",
+"Te acompañamos con tu vivienda actual":"Support with your current home",
+"Dar este paso suele empezar por una pregunta: ¿qué hago con mi casa? Si tienes una vivienda en España, te ayudamos a venderla o alquilarla, y te asesoramos sobre cómo encaja este cambio en la planificación de tu patrimonio y tu herencia.":"Taking this step often starts with one question: what should I do with my home? If you own a home in Spain, we can help you sell or let it, and advise you on how this move fits into your financial and estate planning.",
+"En el norte de España, abierto a quien llega de fuera":"In northern Spain, open to people from abroad",
+"Veranos suaves, paisaje verde y la tranquilidad del norte. Un proyecto pensado también para quienes llegan de otros países, con información en español y en inglés.":"Mild summers, green landscapes and the calm of the north. A project also designed for people coming from other countries, with information in Spanish and English.",
+"¿Qué hago con mi vivienda actual?":"What should I do with my current home?",
+"Depende de tu situación y de tus planes. Si tu vivienda está en España, Golden Chance puede ayudarte a venderla o alquilarla. También te asesoramos sobre cómo encaja este paso en la planificación de tu patrimonio y tu herencia.":"That depends on your circumstances and plans. If your home is in Spain, Golden Chance can help you sell or let it. We can also advise you on how this step fits into your financial and estate planning.",
+"Desde cualquier lugar":"Wherever you are","¿Vives fuera de España?":"Living outside Spain?",
+"Este proyecto también está pensado para personas de otros países que quieren vivir su próxima etapa en España.":"This project is also designed for people from other countries who want to begin their next chapter in Spain.",
+"En tu idioma":"In your language","Información y atención en español y en inglés.":"Information and support in Spanish and English.",
+"Respaldo jurídico en España":"Legal backing in Spain","Golden Chance cuenta con el respaldo de un despacho de abogados con más de 30 años de experiencia.":"Golden Chance is backed by a law firm with more than 30 years of experience.",
+"Trámites explicados":"Paperwork explained","Cuando se definan las condiciones, te explicaremos qué hace falta en cada paso, por ejemplo, el NIE.":"Once the terms are defined, we will explain what is needed at each step — for example, the NIE (Spain's foreigner identification number).",
+"¿Prefieres hablarlo cara a cara? Puedes pedir una videollamada desde el":"Prefer to talk face to face? You can request a video call through the","formulario":"form",
+"Preguntas frecuentes":"Frequently asked questions","Lo que probablemente te estás preguntando.":"What you're probably wondering.",
+"Si tu duda no está aquí,":"If your question isn't here,","escríbenos":"write to us",
+"¿Qué es Golden Chance Senior?":"What is Golden Chance Senior?",
+"Es un nuevo proyecto residencial impulsado por Golden Chance para personas que quieren vivir su etapa sénior con independencia, en un entorno que facilite la vida en comunidad.":"It is a new residential project by Golden Chance for people who want to live their later years independently, in a setting designed to make community life easier.",
+"¿Es una residencia de mayores?":"Is it a care home?",
+"No. No es un centro asistencial. Es una propuesta de vivienda pensada para personas autónomas que quieren seguir decidiendo cómo vivir.":"No. It is not a care facility. It is a housing project for independent people who want to keep deciding how they live.",
+"¿Dónde estará ubicado el proyecto?":"Where will the project be located?",
+"El proyecto está previsto en el norte de España. El emplazamiento concreto está pendiente de confirmación; lo compartiremos en cuanto esté definido.":"The project is planned for northern Spain. The exact site has yet to be confirmed; we will share it as soon as it is decided.",
+"¿Cómo funcionará la cooperativa?":"How will the cooperative work?",
+"El modelo jurídico y las condiciones de participación se encuentran en fase de definición. Facilitaremos información detallada cuando estén confirmados.":"The legal structure and terms of participation are still being defined. We will provide detailed information once they are confirmed.",
+"¿Seré propietario de mi vivienda?":"Will I own my home?",
+"Depende del modelo jurídico que se adopte, que todavía está en definición. Lo explicaremos con claridad —qué derechos tendrá cada participante y en qué condiciones— antes de pedir ningún compromiso.":"That depends on the legal structure, which is still being defined. We will explain it clearly — what rights each participant will have and on what terms — before asking for any commitment.",
+"¿Cuánto costará participar?":"How much will it cost to take part?",
+"Aún no hay condiciones económicas definidas. No publicaremos cifras hasta que estén confirmadas y respaldadas por el proyecto.":"No financial terms have been set yet. We will not publish any figures until they have been confirmed.",
+"¿Qué servicios y espacios comunes tendrá?":"What services and shared spaces will there be?",
+"Se definirán junto con el proyecto arquitectónico. Solo anunciaremos los espacios y servicios que vayan a existir realmente.":"They will be defined together with the architectural design. We will only announce spaces and services that will actually exist.",
+"¿Cuándo se podrá acceder al proyecto?":"When will it be possible to join?",
+"Todavía no hay calendario. Estamos en la primera fase; informaremos de cada hito a las personas inscritas.":"There is no timeline yet. We are in the first phase and will keep everyone who signs up informed of each milestone.",
+"¿Puedo participar si no vivo en España?":"Can I take part if I don't live in Spain?",
+"Queremos que el proyecto esté abierto también a personas que viven fuera de España. Las condiciones de participación aún están en definición; cuando se confirmen, explicaremos con claridad los requisitos y trámites, como el NIE (número de identidad de extranjero).":"We want the project to be open to people living outside Spain too. The terms of participation are still being defined; once confirmed, we will clearly explain the requirements and paperwork, such as the NIE (Spain's foreigner identification number).",
+"¿En qué idiomas puedo recibir información?":"In which languages can I receive information?",
+"En español y en inglés. Indícanos tu idioma preferido en el formulario.":"In Spanish and English. Just tell us your preferred language in the form.",
+"¿Cómo puedo recibir información?":"How can I receive information?",
+"Rellena el":"Fill in the","y te enviaremos las novedades a medida que se confirmen. Sin compromiso.":"and we will keep you updated as plans are confirmed. No obligation.",
+"Una nueva forma de vivir. A tu manera. Proyecto en desarrollo: la información se actualizará a medida que se confirme.":"A new way of living. Your way. This project is in development: information will be updated as it is confirmed.",
+"Contacto":"Contact","Solicitar información":"Request information","Burgos":"Burgos, Spain",
+"Política de privacidad":"Privacy policy","Aviso legal":"Legal notice",
+"Las imágenes son de referencia y no corresponden al proyecto final.":"Images are for reference only and do not show the final development.",
+"Patio con olivo frente a una vivienda de líneas sencillas y grandes ventanales":"Courtyard with an olive tree in front of a clean-lined home with large windows",
+"Un grupo de amigos conversa alrededor de una mesa en un jardín soleado":"A group of friends chatting around a table in a sunny garden",
+"Patio privado con sofá, olivo y luz natural":"Private courtyard with a sofa, olive tree and natural light",
+"Vecinos jugando a la petanca en un jardín comunitario junto a un porche de madera":"Neighbours playing pétanque in a shared garden next to a wooden porch",
+"Una mujer pasea por un camino de piedra entre jardines":"A woman walking along a stone path between gardens",
+"Terraza compartida con mesa larga, pérgola y vistas al atardecer":"Shared terrace with a long table, pergola and sunset views",
+"Muestras de madera de olivo, piedra, lino y cerámica":"Samples of olive wood, stone, linen and ceramics"
+};
+var ATTRS=['alt','aria-label','content'];
+var textNodes=[],attrNodes=[];
+function norm(t){return t.replace(/\s+/g,' ').trim();}
+function collect(){
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    var p=n.parentNode&&n.parentNode.nodeName; return (p==='SCRIPT'||p==='STYLE')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;}});
+  var n; while((n=w.nextNode())){var k=norm(n.nodeValue); if(k&&EN[k]) textNodes.push({n:n,es:n.nodeValue,k:k});}
+  document.querySelectorAll('[alt],[aria-label],meta[name="description"]').forEach(function(el){
+    ATTRS.forEach(function(a){var v=el.getAttribute(a); if(v&&EN[norm(v)]) attrNodes.push({el:el,a:a,es:v,k:norm(v)});});
+  });
+}
+var esTitle=document.title;
+function apply(lang){
+  var en=lang==='en';
+  textNodes.forEach(function(t){
+    if(!en){t.n.nodeValue=t.es;return;}
+    var lead=t.es.match(/^\s*/)[0], trail=t.es.match(/\s*$/)[0];
+    t.n.nodeValue=lead+EN[t.k]+trail;
+  });
+  attrNodes.forEach(function(t){t.el.setAttribute(t.a,en?EN[t.k]:t.es);});
+  document.title=en?(EN[esTitle]||esTitle):esTitle;
+  document.documentElement.lang=en?'en':'es';
+  document.querySelectorAll('.Lang-btn').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lang===lang));});
+  var sel=document.getElementById('f-lang'); if(sel&&!sel.dataset.touched) sel.value=lang;
+  document.querySelectorAll('a[href^="legal.html"]').forEach(function(a){var h=a.getAttribute('href').split('#'),base=h[0].split('?')[0];a.setAttribute('href',base+(en?'?lang=en':'')+(h[1]?'#'+h[1]:''));});
+  try{localStorage.setItem('gcs-lang',lang);}catch(e){}
+  try{var u=new URL(location.href); if(en)u.searchParams.set('lang','en'); else u.searchParams.delete('lang'); history.replaceState(null,'',u);}catch(e){}
+}
+collect();
+var sel=document.getElementById('f-lang'); if(sel) sel.addEventListener('change',function(){sel.dataset.touched='1';});
+document.querySelectorAll('.Lang-btn').forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.lang);});});
+var start='es';
+try{var q=new URLSearchParams(location.search).get('lang'); if(q==='en'||q==='es') start=q; else if(localStorage.getItem('gcs-lang')==='en') start='en';}catch(e){}
+if(start==='en') apply('en');
+})();
+</script>
+</body>
+</html>
