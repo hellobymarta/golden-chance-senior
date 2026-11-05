@@ -102,9 +102,9 @@ e integradas manualmente.
   <section class="Hero" id="inicio" aria-labelledby="hero-title">
     <figure class="Photo Hero-media">
       <picture>
-        <source type="image/avif" srcset="assets/images/01-sendero-pareja-1200.avif 1200w, assets/images/01-sendero-pareja-1920.avif 1920w" sizes="(orientation: portrait) 200vw, 100vw">
-        <source type="image/webp" srcset="assets/images/01-sendero-pareja-1200.webp 1200w, assets/images/01-sendero-pareja-1920.webp 1920w" sizes="(orientation: portrait) 200vw, 100vw">
-        <img class="Photo-img" src="assets/images/01-sendero-pareja-1200.jpg" srcset="assets/images/01-sendero-pareja-1200.jpg 1200w, assets/images/01-sendero-pareja-1920.jpg 1920w" sizes="(orientation: portrait) 200vw, 100vw" width="1920" height="1280" alt="Una pareja mayor camina por un sendero de montaña entre pinos" fetchpriority="high" decoding="async">
+        <source type="image/avif" srcset="assets/images/01-sendero-pareja-1200.avif 1200w, assets/images/01-sendero-pareja-1920.avif 1920w, assets/images/01-sendero-pareja-2560.avif 2560w" sizes="(orientation: portrait) 200vw, 100vw">
+        <source type="image/webp" srcset="assets/images/01-sendero-pareja-1200.webp 1200w, assets/images/01-sendero-pareja-1920.webp 1920w, assets/images/01-sendero-pareja-2560.webp 2560w" sizes="(orientation: portrait) 200vw, 100vw">
+        <img class="Photo-img" src="assets/images/01-sendero-pareja-1200.jpg" srcset="assets/images/01-sendero-pareja-1200.jpg 1200w, assets/images/01-sendero-pareja-1920.jpg 1920w, assets/images/01-sendero-pareja-2560.jpg 2560w" sizes="(orientation: portrait) 200vw, 100vw" width="1920" height="1280" alt="Una pareja mayor camina por un sendero de montaña entre pinos" fetchpriority="high" decoding="async">
       </picture>
     </figure>
     <div class="u-container Hero-content">
@@ -164,9 +164,9 @@ e integradas manualmente.
         <article class="Ways-item">
           <figure class="Photo Ways-media rv-img">
             <picture>
-              <source type="image/avif" srcset="assets/images/03-casa-videollamada-800.avif 800w, assets/images/03-casa-videollamada-1400.avif 1400w" sizes="(min-width: 832px) 71vw, (min-width: 576px) 120vw, 240vw">
-              <source type="image/webp" srcset="assets/images/03-casa-videollamada-800.webp 800w, assets/images/03-casa-videollamada-1400.webp 1400w" sizes="(min-width: 832px) 71vw, (min-width: 576px) 120vw, 240vw">
-              <img class="Photo-img" src="assets/images/03-casa-videollamada-800.jpg" srcset="assets/images/03-casa-videollamada-800.jpg 800w, assets/images/03-casa-videollamada-1400.jpg 1400w" sizes="(min-width: 832px) 71vw, (min-width: 576px) 120vw, 240vw" width="1400" height="788" alt="Una pareja mayor hace una videollamada con su familia desde el salón de su casa" loading="lazy" decoding="async">
+              <source type="image/avif" srcset="assets/images/03-pareja-ritmo-800.avif 800w, assets/images/03-pareja-ritmo-1400.avif 1400w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw">
+              <source type="image/webp" srcset="assets/images/03-pareja-ritmo-800.webp 800w, assets/images/03-pareja-ritmo-1400.webp 1400w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw">
+              <img class="Photo-img" src="assets/images/03-pareja-ritmo-800.jpg" srcset="assets/images/03-pareja-ritmo-800.jpg 800w, assets/images/03-pareja-ritmo-1400.jpg 1400w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw" width="1400" height="933" alt="Una pareja mayor pasea por la montaña a su ritmo, con la luz dorada de la tarde" loading="lazy" decoding="async">
             </picture>
           </figure>
           <h3 class="Ways-title">Tu espacio</h3>
@@ -221,47 +221,50 @@ e integradas manualmente.
     </div>
   </section>
 
-  <!-- Entorno -->
-  <section class="Section Section--sand" id="entorno" aria-labelledby="entorno-title">
-    <div class="u-container">
-      <div class="Setting-head">
-        <div>
-          <p class="u-eyebrow rv">El entorno</p>
-          <h2 class="Section-title rv" id="entorno-title">Entre el mar y la montaña.</h2>
+  <!-- Entorno: fondo fijo que cambia de foto mientras el texto pasa por encima -->
+  <section class="Setting" id="entorno" aria-labelledby="entorno-title">
+    <div class="Setting-stage">
+      <picture class="Setting-layer is-active" data-scene="costa">
+        <source type="image/avif" srcset="assets/images/entorno-costa-1000.avif 1000w, assets/images/entorno-costa-1920.avif 1920w" sizes="(orientation: portrait) 300vw, 100vw">
+        <source type="image/webp" srcset="assets/images/entorno-costa-1000.webp 1000w, assets/images/entorno-costa-1920.webp 1920w" sizes="(orientation: portrait) 300vw, 100vw">
+        <img class="Setting-img" src="assets/images/entorno-costa-1000.jpg" srcset="assets/images/entorno-costa-1000.jpg 1000w, assets/images/entorno-costa-1920.jpg 1920w" sizes="(orientation: portrait) 300vw, 100vw" width="1920" height="1440" alt="Acantilados verdes sobre el mar Cantábrico en un día despejado" loading="lazy" decoding="async">
+      </picture>
+      <picture class="Setting-layer" data-scene="pueblo">
+        <source type="image/avif" srcset="assets/images/entorno-pueblo-1000.avif 1000w, assets/images/entorno-pueblo-1920.avif 1920w" sizes="(orientation: portrait) 120vw, 100vw">
+        <source type="image/webp" srcset="assets/images/entorno-pueblo-1000.webp 1000w, assets/images/entorno-pueblo-1920.webp 1920w" sizes="(orientation: portrait) 120vw, 100vw">
+        <img class="Setting-img" src="assets/images/entorno-pueblo-1000.jpg" srcset="assets/images/entorno-pueblo-1000.jpg 1000w, assets/images/entorno-pueblo-1920.jpg 1920w" sizes="(orientation: portrait) 120vw, 100vw" width="1920" height="2400" alt="Calle empedrada de un pueblo de piedra con geranios en los balcones" loading="lazy" decoding="async">
+      </picture>
+      <picture class="Setting-layer" data-scene="montana">
+        <source type="image/avif" srcset="assets/images/entorno-montana-1000.avif 1000w, assets/images/entorno-montana-1920.avif 1920w" sizes="(orientation: portrait) 320vw, 100vw">
+        <source type="image/webp" srcset="assets/images/entorno-montana-1000.webp 1000w, assets/images/entorno-montana-1920.webp 1920w" sizes="(orientation: portrait) 320vw, 100vw">
+        <img class="Setting-img" src="assets/images/entorno-montana-1000.jpg" srcset="assets/images/entorno-montana-1000.jpg 1000w, assets/images/entorno-montana-1920.jpg 1920w" sizes="(orientation: portrait) 320vw, 100vw" width="1920" height="1280" alt="Cabaña de piedra en un valle de montaña junto a un camino" loading="lazy" decoding="async">
+      </picture>
+    </div>
+    <div class="Setting-scroll">
+      <div class="u-container Setting-panel">
+        <div class="Setting-card Setting-card--intro rv">
+          <p class="u-eyebrow">El entorno</p>
+          <h2 class="Section-title" id="entorno-title">Entre el mar y la montaña.</h2>
+          <p class="Setting-text">Un entorno de costa, pueblos de piedra y montaña en el norte de España. La ubicación exacta se comunicará cuando esté confirmada.</p>
         </div>
-        <p class="Section-lead rv">Un entorno de costa, pueblos de piedra y montaña en el norte de España. La ubicación exacta se comunicará cuando esté confirmada.</p>
       </div>
-      <div class="Setting-grid">
-        <figure class="Setting-item">
-          <div class="Photo Setting-media rv-img">
-            <picture>
-              <source type="image/avif" srcset="assets/images/entorno-costa-600.avif 600w, assets/images/entorno-costa-1000.avif 1000w" sizes="(min-width: 832px) 56vw, 100vw">
-              <source type="image/webp" srcset="assets/images/entorno-costa-600.webp 600w, assets/images/entorno-costa-1000.webp 1000w" sizes="(min-width: 832px) 56vw, 100vw">
-              <img class="Photo-img" src="assets/images/entorno-costa-600.jpg" srcset="assets/images/entorno-costa-600.jpg 600w, assets/images/entorno-costa-1000.jpg 1000w" sizes="(min-width: 832px) 56vw, 100vw" width="1000" height="750" alt="Acantilados verdes sobre el mar Cantábrico en un día despejado" loading="lazy" decoding="async">
-            </picture>
-          </div>
-          <figcaption class="Setting-caption">El mar Cantábrico</figcaption>
-        </figure>
-        <figure class="Setting-item">
-          <div class="Photo Setting-media rv-img">
-            <picture>
-              <source type="image/avif" srcset="assets/images/entorno-pueblo-600.avif 600w, assets/images/entorno-pueblo-1000.avif 1000w" sizes="(min-width: 832px) 30vw, 100vw">
-              <source type="image/webp" srcset="assets/images/entorno-pueblo-600.webp 600w, assets/images/entorno-pueblo-1000.webp 1000w" sizes="(min-width: 832px) 30vw, 100vw">
-              <img class="Photo-img" src="assets/images/entorno-pueblo-600.jpg" srcset="assets/images/entorno-pueblo-600.jpg 600w, assets/images/entorno-pueblo-1000.jpg 1000w" sizes="(min-width: 832px) 30vw, 100vw" width="1000" height="1500" alt="Calle empedrada de un pueblo de piedra con geranios en los balcones" loading="lazy" decoding="async">
-            </picture>
-          </div>
-          <figcaption class="Setting-caption">Pueblos con historia</figcaption>
-        </figure>
-        <figure class="Setting-item">
-          <div class="Photo Setting-media rv-img">
-            <picture>
-              <source type="image/avif" srcset="assets/images/entorno-montana-600.avif 600w, assets/images/entorno-montana-1000.avif 1000w" sizes="(min-width: 832px) 56vw, 100vw">
-              <source type="image/webp" srcset="assets/images/entorno-montana-600.webp 600w, assets/images/entorno-montana-1000.webp 1000w" sizes="(min-width: 832px) 56vw, 100vw">
-              <img class="Photo-img" src="assets/images/entorno-montana-600.jpg" srcset="assets/images/entorno-montana-600.jpg 600w, assets/images/entorno-montana-1000.jpg 1000w" sizes="(min-width: 832px) 56vw, 100vw" width="1000" height="667" alt="Cabaña de piedra en un valle de montaña junto a un camino" loading="lazy" decoding="async">
-            </picture>
-          </div>
-          <figcaption class="Setting-caption">La montaña, cerca</figcaption>
-        </figure>
+      <div class="u-container Setting-panel" data-scene="costa">
+        <article class="Setting-card rv">
+          <h3 class="Setting-title">El mar Cantábrico</h3>
+          <p class="Setting-text">Paseos junto al mar, aire limpio y un clima templado, sin calores extremos.</p>
+        </article>
+      </div>
+      <div class="u-container Setting-panel" data-scene="pueblo">
+        <article class="Setting-card rv">
+          <h3 class="Setting-title">Pueblos con historia</h3>
+          <p class="Setting-text">Calles de piedra, mercados y la vida tranquila de los pueblos del norte.</p>
+        </article>
+      </div>
+      <div class="u-container Setting-panel" data-scene="montana">
+        <article class="Setting-card rv">
+          <h3 class="Setting-title">La montaña, cerca</h3>
+          <p class="Setting-text">Valles verdes y caminos para recorrer a tu ritmo.</p>
+        </article>
       </div>
     </div>
   </section>

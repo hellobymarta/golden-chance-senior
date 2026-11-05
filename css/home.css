@@ -351,30 +351,94 @@
 
 /* ==========================================================
    ENTORNO
+   La foto se queda fija (sticky) y cambia mientras las tarjetas
+   de texto pasan por encima. Sin JS se ve siempre la primera.
 ========================================================== */
-.Setting-head {
-  display: grid;
-  gap: 1.5rem;
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+.Setting {
+  position: relative;
+  background-color: var(--color-charcoal);
 }
 
-.Setting-grid {
-  display: grid;
-  gap: clamp(2rem, 3vw, 2.5rem);
+.Setting-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
 }
 
-.Setting-item {
+.Setting-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--duration-1200) var(--ease-out);
+}
+
+.Setting-layer.is-active {
+  opacity: 1;
+}
+
+.Setting-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Setting-layer[data-scene="costa"] .Setting-img {
+  object-position: 62% 50%;
+}
+
+.Setting-layer[data-scene="pueblo"] .Setting-img {
+  object-position: 50% 60%;
+}
+
+.Setting-layer[data-scene="montana"] .Setting-img {
+  object-position: 30% 65%;
+}
+
+.Setting-scroll {
+  position: relative;
+  margin-top: -100vh;
+  margin-top: -100svh;
+  padding-bottom: 12vh;
+}
+
+.Setting-panel {
+  display: flex;
+  align-items: center;
+  min-height: 90vh;
+  min-height: 90svh;
+}
+
+.Setting-panel:first-child {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.Setting-card {
+  max-width: 26rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  border-radius: var(--radius);
+  background-color: rgb(246 242 233 / 0.95);
+  box-shadow: 0 24px 60px rgb(20 24 18 / 0.22);
+}
+
+.Setting-card--intro {
+  max-width: 34rem;
+}
+
+.Setting-card--intro .Section-title {
+  margin-bottom: 1rem;
+}
+
+.Setting-title {
+  margin-bottom: 0.6rem;
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+}
+
+.Setting-text {
   margin: 0;
-}
-
-.Setting-media {
-  aspect-ratio: 4 / 3;
-  margin-bottom: 0.9rem;
-}
-
-.Setting-caption {
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
+  color: var(--color-muted);
 }
 
 /* ==========================================================
@@ -467,7 +531,7 @@
   bottom: 0.25rem;
   left: 1.25rem;
   width: 1px;
-  background-color: var(--color-line);
+  background-color: var(--color-terracotta);
 }
 
 .Steps-item:last-child::after {
@@ -901,12 +965,9 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .Setting-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .Setting-media {
-    aspect-ratio: 4 / 5;
+  /* Las tarjetas se alternan: la de los pueblos va a la derecha */
+  .Setting-panel:nth-child(3) {
+    justify-content: flex-end;
   }
 
   .Ways-item:nth-child(2) {
@@ -934,14 +995,12 @@
   }
 
   .Ways-head,
-  .Setting-head,
   .Diff-head {
     grid-template-columns: 1fr 1fr;
     align-items: end;
   }
 
   .Ways-head .Section-lead,
-  .Setting-head .Section-lead,
   .Diff-head .Section-lead {
     margin: 0;
   }
@@ -977,22 +1036,67 @@
 }
 
 @media (min-width: 960px) {
-  .Steps {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.75rem;
+  /* Escritorio: cada número queda centrado sobre su columna y una sola
+     línea continua los une de centro a centro */
+  .Steps-head {
+    margin-inline: auto;
+    text-align: center;
   }
 
+  .Steps-head .u-eyebrow {
+    justify-content: center;
+  }
+
+  .Steps {
+    position: relative;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 1.75rem;
+  }
+
+  /* Centro de la 1.ª y la 5.ª columna: 10% del ancho menos 0,4 huecos */
+  .Steps::before {
+    content: "";
+    position: absolute;
+    top: 1.25rem;
+    right: calc(10% - 0.7rem);
+    left: calc(10% - 0.7rem);
+    height: 1px;
+    background-color: var(--color-terracotta);
+    transform-origin: 0 50%;
+  }
+
+  /* Subgrid: títulos y párrafos de los cinco pasos comparten filas,
+     así los textos empiezan a la misma altura */
   .Steps-item {
-    padding: 3.75rem 0 0;
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    align-content: start;
+    padding: 4.25rem 0 0;
+    text-align: center;
+  }
+
+  .Steps-item::before {
+    left: 50%;
+    z-index: var(--z-stepNumber);
+    margin-left: -1.25rem;
   }
 
   .Steps-item::after {
-    top: 1.25rem;
-    right: -1.5rem;
-    bottom: auto;
-    left: 3.25rem;
-    width: auto;
-    height: 1px;
+    display: none;
+  }
+
+  .Steps-title {
+    margin-top: 0;
+  }
+
+  .Steps-text {
+    margin-inline: auto;
+  }
+
+  .Steps-cta {
+    text-align: center;
   }
 
   .Project {
@@ -1160,10 +1264,18 @@
     scale: 1.12;
   }
 
+  /* Cómo funciona: la línea se dibuja mientras aparecen los pasos */
+  .Steps::before {
+    transform: scaleX(0);
+    transition: transform var(--duration-1800) var(--ease-inOut) 0.15s;
+  }
+
+  .Steps.is-in::before {
+    transform: none;
+  }
+
   .Ways-item:nth-child(2) .rv-img { --delay: 140ms; }
   .Ways-item:nth-child(3) .rv-img { --delay: 280ms; }
-  .Setting-item:nth-child(2) .rv-img { --delay: 140ms; }
-  .Setting-item:nth-child(3) .rv-img { --delay: 280ms; }
 }
 
 @media (prefers-reduced-motion: no-preference) and (scripting: enabled) and (hover: hover) {

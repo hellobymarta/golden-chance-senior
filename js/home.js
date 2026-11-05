@@ -18,6 +18,7 @@
    - Cabecera: sombra y barra de progreso al hacer scroll.
    - Llamada fija inferior en móvil y tablet.
    - Aparición de contenidos y parallax suave (IntersectionObserver).
+   - Entorno: cambia la foto fija según la tarjeta que está en pantalla.
    - Formulario: validación accesible y envío por FormSubmit.
 ========================================================== */
 
@@ -44,6 +45,8 @@
   const stickyCta = document.querySelector(".StickyCta");
   const revealItems = document.querySelectorAll(".rv, .rv-img, .rv-group");
   const parallaxItems = document.querySelectorAll(".is-parallax");
+  const settingLayers = document.querySelectorAll(".Setting-layer");
+  const settingPanels = document.querySelectorAll(".Setting-panel[data-scene]");
   const leadForm = document.querySelector("#lead-form");
   const nameInput = document.querySelector("#f-name");
   const emailInput = document.querySelector("#f-email");
@@ -88,6 +91,22 @@
         observer.unobserve(entry.target);
       }
     });
+  }
+
+  /** Muestra la foto de fondo que corresponde a la escena indicada. */
+  function showSettingScene(scene) {
+    settingLayers.forEach((layer) => {
+      layer.classList.toggle("is-active", layer.dataset.scene === scene);
+    });
+  }
+
+  /** La tarjeta que cruza el centro de la pantalla decide la foto de fondo. */
+  function settingObserverHandler(entries) {
+    const activeEntry = entries.find((entry) => entry.isIntersecting);
+
+    if (activeEntry) {
+      showSettingScene(activeEntry.target.dataset.scene);
+    }
   }
 
   /** Solo se calcula el parallax de las fotos que están en pantalla. */
@@ -238,6 +257,12 @@
     new IntersectionObserver(heroObserverHandler).observe(hero);
     new IntersectionObserver(contactObserverHandler).observe(contactBlock);
     revealItems.forEach((item) => revealObserver.observe(item));
+
+    const settingObserver = new IntersectionObserver(settingObserverHandler, {
+      rootMargin: "-45% 0px -45% 0px",
+    });
+
+    settingPanels.forEach((panel) => settingObserver.observe(panel));
 
     if (canAnimate) {
       const parallaxObserver = new IntersectionObserver(parallaxObserverHandler);
