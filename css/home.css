@@ -368,17 +368,6 @@
   background-color: var(--color-charcoal);
 }
 
-/* Cabecera normal; después, una foto por tarjeta */
-.Setting-head {
-  padding-block: var(--space-section) clamp(3rem, 6vw, 5rem);
-  background-color: var(--color-ivory);
-}
-
-.Setting-headInner {
-  display: grid;
-  gap: 1.5rem;
-}
-
 .Setting-stage {
   position: sticky;
   top: 0;
@@ -418,6 +407,34 @@
 
 .Setting-index {
   display: none;
+}
+
+/* Apertura: título grande en blanco sobre la foto de bosque y niebla */
+.Setting-panel:first-child {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.Setting-intro {
+  max-width: 42rem;
+  color: var(--color-white);
+  text-shadow: 0 2px 24px rgb(20 24 18 / 0.35);
+}
+
+.Setting-intro .u-eyebrow {
+  color: rgb(255 253 248 / 0.85);
+}
+
+.Setting-heading {
+  margin-bottom: 1.25rem;
+  font-size: var(--text-h1);
+}
+
+.Setting-lead {
+  max-width: 34rem;
+  margin: 0;
+  font-size: var(--text-lead);
+  opacity: 0.92;
 }
 
 .Setting-layer[data-scene="costa"] .Setting-img {
@@ -473,12 +490,15 @@
   transition: color var(--duration-600) var(--ease-out);
 }
 
+/* La línea ocupa siempre 3rem; inactiva se ve a la mitad, pegada al
+   texto, y activa se alarga hacia la izquierda sin tocar la palabra */
 .Setting-indexItem::before {
   content: "";
-  width: 1.5rem;
+  width: 3rem;
   height: 1px;
   background-color: currentColor;
-  transform-origin: 0 50%;
+  transform: scaleX(0.5);
+  transform-origin: 100% 50%;
   transition: transform var(--duration-600) var(--ease-out);
 }
 
@@ -487,7 +507,7 @@
 }
 
 .Setting-indexItem.is-active::before {
-  transform: scaleX(2);
+  transform: none;
 }
 
 /* ==========================================================
@@ -508,13 +528,21 @@
   counter-reset: diff;
 }
 
+/* Hueco final dentro de la lista: mantiene las tres tarjetas apiladas
+   un momento antes de que la sección siga subiendo */
+.Diff-list::after {
+  content: "";
+  height: 30vh;
+}
+
 /* Tarjetas que se apilan: cada una se queda fija un poco más abajo
    que la anterior y la siguiente sube por encima */
 .Diff-item {
   --stack: 0;
+  --stack-step: 8.25rem;
   counter-increment: diff;
   position: sticky;
-  top: calc(6rem + var(--stack) * 1rem);
+  top: calc(5.5rem + var(--stack) * var(--stack-step));
   padding: clamp(1.75rem, 4vw, 2.75rem);
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
@@ -1047,7 +1075,7 @@
   }
 
   /* Las tarjetas se alternan: la de los pueblos va a la derecha */
-  .Setting-panel:nth-child(2) {
+  .Setting-panel:nth-child(3) {
     justify-content: flex-end;
   }
 
@@ -1075,14 +1103,12 @@
     padding-top: 2.75rem;
   }
 
-  .Ways-head,
-  .Setting-headInner {
+  .Ways-head {
     grid-template-columns: 1fr 1fr;
     align-items: end;
   }
 
-  .Ways-head .Section-lead,
-  .Setting-headInner .Section-lead {
+  .Ways-head .Section-lead {
     margin: 0;
   }
 
@@ -1095,7 +1121,7 @@
 
   .Diff-head {
     position: sticky;
-    top: 8rem;
+    top: 6.5rem;
     margin-bottom: 0;
   }
 
@@ -1104,7 +1130,8 @@
   }
 
   .Diff-item {
-    top: calc(8rem + var(--stack) * 1.25rem);
+    --stack-step: 9rem;
+    top: calc(6.5rem + var(--stack) * var(--stack-step));
   }
 
   .Community {

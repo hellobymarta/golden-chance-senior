@@ -223,17 +223,13 @@ e integradas manualmente.
 
   <!-- Entorno: fondo fijo que cambia de foto mientras el texto pasa por encima -->
   <section class="Setting" id="entorno" aria-labelledby="entorno-title">
-    <div class="Setting-head">
-      <div class="u-container Setting-headInner">
-        <div>
-          <p class="u-eyebrow rv">El entorno</p>
-          <h2 class="Section-title rv" id="entorno-title">Entre el mar y la montaña.</h2>
-        </div>
-        <p class="Section-lead rv">Un entorno de costa, pueblos de piedra y montaña en el norte de España. La ubicación exacta se comunicará cuando esté confirmada.</p>
-      </div>
-    </div>
     <div class="Setting-stage">
-      <picture class="Setting-layer is-active" data-scene="costa">
+      <picture class="Setting-layer is-active" data-scene="intro">
+        <source type="image/avif" srcset="assets/images/entorno-intro-1000.avif 1000w, assets/images/entorno-intro-1920.avif 1920w" sizes="(orientation: portrait) 280vw, 100vw">
+        <source type="image/webp" srcset="assets/images/entorno-intro-1000.webp 1000w, assets/images/entorno-intro-1920.webp 1920w" sizes="(orientation: portrait) 280vw, 100vw">
+        <img class="Setting-img" src="assets/images/entorno-intro-1000.jpg" srcset="assets/images/entorno-intro-1000.jpg 1000w, assets/images/entorno-intro-1920.jpg 1920w" sizes="(orientation: portrait) 280vw, 100vw" width="1920" height="1115" alt="" loading="lazy" decoding="async">
+      </picture>
+      <picture class="Setting-layer" data-scene="costa">
         <source type="image/avif" srcset="assets/images/entorno-costa-1000.avif 1000w, assets/images/entorno-costa-1920.avif 1920w" sizes="(orientation: portrait) 300vw, 100vw">
         <source type="image/webp" srcset="assets/images/entorno-costa-1000.webp 1000w, assets/images/entorno-costa-1920.webp 1920w" sizes="(orientation: portrait) 300vw, 100vw">
         <img class="Setting-img" src="assets/images/entorno-costa-1000.jpg" srcset="assets/images/entorno-costa-1000.jpg 1000w, assets/images/entorno-costa-1920.jpg 1920w" sizes="(orientation: portrait) 300vw, 100vw" width="1920" height="1440" alt="Acantilados verdes sobre el mar Cantábrico en un día despejado" loading="lazy" decoding="async">
@@ -255,6 +251,13 @@ e integradas manualmente.
       </ol>
     </div>
     <div class="Setting-scroll">
+      <div class="u-container Setting-panel" data-scene="intro">
+        <div class="Setting-intro">
+          <p class="u-eyebrow">El entorno</p>
+          <h2 class="Setting-heading" id="entorno-title">Entre el mar y la montaña.</h2>
+          <p class="Setting-lead">Un entorno de costa, pueblos de piedra y montaña en el norte de España. La ubicación exacta se comunicará cuando esté confirmada.</p>
+        </div>
+      </div>
       <div class="u-container Setting-panel" data-scene="costa">
         <article class="Setting-card rv">
           <h3 class="Setting-title">El mar Cantábrico</h3>
