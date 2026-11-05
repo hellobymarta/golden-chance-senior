@@ -1,0 +1,87 @@
+/* ========================================================
+   Proyecto Golden Chance Senior
+   Este archivo ha sido desarrollado por la autora
+   (Marta Alarcón Rodríguez).
+   Se ha utilizado Inteligencia Artificial (ChatGPT y Claude)
+   como apoyo para:
+   - organización del CSS
+   - revisión responsive
+   - mejoras de accesibilidad
+   Todas las decisiones finales y modificaciones fueron
+   revisadas e implementadas manualmente.
+======================================================== */
+
+/* ==========================================================
+   LEGAL
+   Aviso legal, privacidad y cookies. Reutiliza la cabecera,
+   la marca y el selector de idioma de base.css.
+========================================================== */
+.Legal {
+  max-width: 46rem;
+  padding-block: 3rem 5rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* Solo se muestra la versión del idioma activo */
+.Legal-version--en {
+  display: none;
+}
+
+html[lang="en"] .Legal-version--es {
+  display: none;
+}
+
+html[lang="en"] .Legal-version--en {
+  display: block;
+}
+
+.Legal-title {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem);
+  line-height: 1.15;
+}
+
+.Legal-heading {
+  margin: 3.5rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 1.625rem;
+  line-height: 1.15;
+}
+
+.Legal-subheading {
+  margin: 1.75rem 0 0.4rem;
+  font-size: 1.125rem;
+}
+
+.Legal-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0 0 1em;
+  padding: 0;
+  list-style: none;
+}
+
+.Legal-updated {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+.Legal-data {
+  margin: 0 0 1em;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--color-terracottaInk);
+  background-color: var(--color-white);
+  list-style: none;
+}
+
+.Legal-list {
+  margin: 0 0 1em;
+}
+
+.Legal-back {
+  display: inline-block;
+  margin-top: 3rem;
+}

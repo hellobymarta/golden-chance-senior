@@ -1,0 +1,442 @@
+<!--
+========================================================
+Proyecto: Golden Chance Senior
+Autora: Marta Alarcón Rodríguez
+Este proyecto ha sido desarrollado por la autora.
+Durante el desarrollo se han utilizado herramientas
+de Inteligencia Artificial (ChatGPT y Claude) como
+apoyo para:
+- revisión de código
+- propuestas de diseño
+- optimización de HTML, CSS y JavaScript
+- copywriting y traducción
+- detección de errores
+- documentación
+Todas las propuestas fueron revisadas, adaptadas
+e integradas manualmente.
+========================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Chance Senior · Una nueva forma de vivir</title>
+  <meta name="description" content="Golden Chance Senior: un nuevo proyecto residencial sénior en el norte de España, impulsado por Golden Chance. Independencia, comunidad y futuro. Proyecto en desarrollo.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#f6f2e9">
+
+  <!-- Iconos -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/icons/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+  <!-- SEO y vista previa al compartir (Open Graph y X/Twitter) -->
+  <link rel="canonical" href="https://golden-chance-senior.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Golden Chance Senior">
+  <meta property="og:url" content="https://golden-chance-senior.vercel.app/">
+  <meta property="og:title" content="Golden Chance Senior · Una nueva forma de vivir">
+  <meta property="og:description" content="Proyecto residencial sénior en el norte de España, impulsado por Golden Chance. Independencia, comunidad y futuro.">
+  <meta property="og:image" content="https://golden-chance-senior.vercel.app/assets/images/og-golden-chance-senior.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Golden Chance Senior: Tu casa. Tu vida. Tu futuro.">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Golden Chance Senior · Una nueva forma de vivir">
+  <meta name="twitter:description" content="Proyecto residencial sénior en el norte de España, impulsado por Golden Chance. Independencia, comunidad y futuro.">
+  <meta name="twitter:image" content="https://golden-chance-senior.vercel.app/assets/images/og-golden-chance-senior.jpg">
+
+  <!-- Tipografía principal precargada (alojada en el proyecto) -->
+  <link rel="preload" href="assets/fonts/fraunces-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS: base compartida + estilos de la home -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+
+  <!-- JS: traducción, menú y lógica de la home -->
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/home.js" defer></script>
+</head>
+
+<body>
+<a class="SkipLink" href="#contenido">Saltar al contenido</a>
+
+<!-- Cabecera: marca, navegación, idioma y llamada principal -->
+<header class="Header">
+  <div class="Header-progress" aria-hidden="true"></div>
+  <div class="u-container Header-inner">
+    <a class="Brand" href="#inicio" aria-label="Golden Chance Senior, ir al inicio">
+      <img class="Brand-logo" src="assets/icons/logo-golden-chance.webp" width="543" height="214" alt="">
+      <span class="Brand-sub" aria-hidden="true">Senior</span>
+    </a>
+    <button class="Nav-toggle" type="button" aria-expanded="false" aria-controls="nav">
+      <span class="Nav-toggleIcon" aria-hidden="true"></span><span class="Nav-toggleText">Menú</span>
+    </button>
+    <nav class="Nav" id="nav" aria-label="Principal">
+      <ul class="Nav-list">
+        <li><a class="Nav-link" href="#filosofia">La filosofía</a></li>
+        <li><a class="Nav-link" href="#forma-de-vivir">Forma de vivir</a></li>
+        <li><a class="Nav-link" href="#como-funciona">Cómo funciona</a></li>
+        <li><a class="Nav-link" href="#proyecto">El proyecto</a></li>
+        <li><a class="Nav-link" href="#quienes-somos">Quiénes somos</a></li>
+        <li><a class="Nav-link" href="#preguntas">Preguntas</a></li>
+        <li class="Nav-mobileCta"><a class="Button Button--primary" href="#contacto">Quiero conocer el proyecto</a></li>
+      </ul>
+    </nav>
+    <div class="Lang" role="group" aria-label="Idioma">
+      <button type="button" class="Lang-btn" data-lang="es" lang="es" aria-pressed="true">ES</button>
+      <button type="button" class="Lang-btn" data-lang="en" lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="Button Button--primary Header-cta" href="#contacto">Quiero conocer el proyecto</a>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- Portada -->
+  <section class="Hero" id="inicio" aria-labelledby="hero-title">
+    <figure class="Photo Hero-media">
+      <picture>
+        <source type="image/avif" srcset="assets/images/01-patio-olivo-1200.avif 1200w, assets/images/01-patio-olivo-1920.avif 1920w" sizes="(orientation: portrait) 200vw, 100vw">
+        <source type="image/webp" srcset="assets/images/01-patio-olivo-1200.webp 1200w, assets/images/01-patio-olivo-1920.webp 1920w" sizes="(orientation: portrait) 200vw, 100vw">
+        <img class="Photo-img" src="assets/images/01-patio-olivo-1200.jpg" srcset="assets/images/01-patio-olivo-1200.jpg 1200w, assets/images/01-patio-olivo-1920.jpg 1920w" sizes="(orientation: portrait) 200vw, 100vw" width="1920" height="1268" alt="Patio con olivo frente a una vivienda de líneas sencillas y grandes ventanales" fetchpriority="high" decoding="async">
+      </picture>
+      <figcaption class="Photo-note">Imagen de referencia</figcaption>
+    </figure>
+    <div class="u-container Hero-content">
+      <p class="Hero-kicker">Golden Chance Senior</p>
+      <h1 class="Hero-title" id="hero-title"><span class="u-nowrap">Tu casa.</span> <span class="u-nowrap">Tu vida.</span><br><em>Tu futuro.</em></h1>
+      <p class="Hero-sub">Un nuevo proyecto residencial sénior en el norte de España, impulsado por Golden Chance.</p>
+      <p class="Hero-body">Porque el futuro no consiste en dejar de elegir, sino en seguir haciéndolo. Estamos desarrollando una nueva propuesta de vida para quienes quieren mantener su independencia y explorar una forma diferente de vivir esta etapa.</p>
+      <div class="Hero-actions">
+        <a class="Button Button--primary" href="#contacto">Quiero conocer el proyecto</a>
+        <a class="Button Button--light" href="#filosofia">Descubre la filosofía</a>
+      </div>
+      <p class="Hero-badge">Proyecto en desarrollo · Primera fase</p>
+    </div>
+  </section>
+
+  <!-- Pilares del proyecto -->
+  <section class="Pillars" aria-labelledby="pillars-title">
+    <h2 class="u-srOnly" id="pillars-title">Pilares del proyecto</h2>
+    <div class="u-container"><ul class="Pillars-list rv-group">
+      <li class="Pillars-item"><h3 class="Pillars-name">Independencia</h3><p class="Pillars-text">Tu espacio, tus decisiones y tu ritmo de vida.</p></li>
+      <li class="Pillars-item"><h3 class="Pillars-name">Comunidad</h3><p class="Pillars-text">Compartir experiencias sin renunciar a tu intimidad.</p></li>
+      <li class="Pillars-item"><h3 class="Pillars-name">Seguridad</h3><p class="Pillars-text">Transparencia sobre cómo funcionará el proyecto.</p></li>
+      <li class="Pillars-item"><h3 class="Pillars-name">Futuro</h3><p class="Pillars-text">Planificar esta etapa con ilusión y criterio propio.</p></li>
+    </ul></div>
+  </section>
+
+  <!-- Filosofía -->
+  <section class="Section" id="filosofia" aria-labelledby="filosofia-title">
+    <div class="u-container Philosophy">
+      <figure class="Photo Philosophy-media rv-img is-parallax">
+        <picture>
+          <source type="image/avif" srcset="assets/images/02-amigos-jardin-900.avif 900w, assets/images/02-amigos-jardin-1600.avif 1600w" sizes="(min-width: 896px) 72vw, (min-width: 576px) 100vw, 200vw">
+          <source type="image/webp" srcset="assets/images/02-amigos-jardin-900.webp 900w, assets/images/02-amigos-jardin-1600.webp 1600w" sizes="(min-width: 896px) 72vw, (min-width: 576px) 100vw, 200vw">
+          <img class="Photo-img" src="assets/images/02-amigos-jardin-900.jpg" srcset="assets/images/02-amigos-jardin-900.jpg 900w, assets/images/02-amigos-jardin-1600.jpg 1600w" sizes="(min-width: 896px) 72vw, (min-width: 576px) 100vw, 200vw" width="1600" height="997" alt="Un grupo de amigos conversa alrededor de una mesa en un jardín soleado" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <div>
+        <p class="u-eyebrow rv">La filosofía</p>
+        <h2 class="Section-title rv" id="filosofia-title">Envejecer no significa dejar de empezar.</h2>
+        <p class="Section-lead rv">Hay una etapa en la que el tiempo adquiere otro valor. Elegir dónde vivir, con quién compartir experiencias y cómo organizar el día a día se vuelve más importante que nunca.</p>
+        <ol class="Philosophy-list rv-group">
+          <li class="Philosophy-item"><span>Seguir tomando decisiones sobre tu propia vida.</span></li>
+          <li class="Philosophy-item"><span>Disfrutar de la tranquilidad de un espacio personal.</span></li>
+          <li class="Philosophy-item"><span>Tener la posibilidad de crear nuevas relaciones y experiencias.</span></li>
+        </ol>
+        <p class="Philosophy-quote rv">Una nueva etapa no tiene por qué significar renunciar a nada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forma de vivir -->
+  <section class="Section Section--sand" id="forma-de-vivir" aria-labelledby="vivir-title">
+    <div class="u-container">
+      <div class="Ways-head">
+        <div>
+          <p class="u-eyebrow rv">Una nueva forma de vivir</p>
+          <h2 class="Section-title rv" id="vivir-title">Vivir como tú decides.</h2>
+        </div>
+        <p class="Section-lead rv">Ni una residencia ni una urbanización convencional: una propuesta pensada para quienes quieren seguir eligiendo cómo vivir.</p>
+      </div>
+      <div class="Ways-grid rv-group">
+        <article class="Ways-item">
+          <figure class="Photo Ways-media rv-img">
+            <picture>
+              <source type="image/avif" srcset="assets/images/03-patio-privado-800.avif 800w, assets/images/03-patio-privado-1400.avif 1400w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw">
+              <source type="image/webp" srcset="assets/images/03-patio-privado-800.webp 800w, assets/images/03-patio-privado-1400.webp 1400w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw">
+              <img class="Photo-img" src="assets/images/03-patio-privado-800.jpg" srcset="assets/images/03-patio-privado-800.jpg 800w, assets/images/03-patio-privado-1400.jpg 1400w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw" width="1400" height="902" alt="Patio privado con sofá, olivo y luz natural" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+          <h3 class="Ways-title">Tu espacio</h3>
+          <p class="Ways-text">Privacidad y autonomía en el día a día. Un hogar propio donde mantener tus costumbres, tus objetos y tu ritmo.</p>
+        </article>
+        <article class="Ways-item">
+          <figure class="Photo Ways-media rv-img">
+            <picture>
+              <source type="image/avif" srcset="assets/images/04-jardin-comunitario-800.avif 800w, assets/images/04-jardin-comunitario-1400.avif 1400w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw">
+              <source type="image/webp" srcset="assets/images/04-jardin-comunitario-800.webp 800w, assets/images/04-jardin-comunitario-1400.webp 1400w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw">
+              <img class="Photo-img" src="assets/images/04-jardin-comunitario-800.jpg" srcset="assets/images/04-jardin-comunitario-800.jpg 800w, assets/images/04-jardin-comunitario-1400.jpg 1400w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw" width="1400" height="952" alt="Vecinos jugando a la petanca en un jardín comunitario junto a un porche de madera" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+          <h3 class="Ways-title">Tu comunidad</h3>
+          <p class="Ways-text">La posibilidad de compartir momentos y experiencias con personas que buscan lo mismo que tú, cuando tú lo decidas.</p>
+        </article>
+        <article class="Ways-item">
+          <figure class="Photo Ways-media rv-img">
+            <picture>
+              <source type="image/avif" srcset="assets/images/05-paseo-jardin-900.avif 900w, assets/images/05-paseo-jardin-1600.avif 1600w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw">
+              <source type="image/webp" srcset="assets/images/05-paseo-jardin-900.webp 900w, assets/images/05-paseo-jardin-1600.webp 1600w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw">
+              <img class="Photo-img" src="assets/images/05-paseo-jardin-900.jpg" srcset="assets/images/05-paseo-jardin-900.jpg 900w, assets/images/05-paseo-jardin-1600.jpg 1600w" sizes="(min-width: 832px) 55vw, (min-width: 576px) 110vw, 230vw" width="1600" height="829" alt="Una mujer pasea por un camino de piedra entre jardines" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+          <h3 class="Ways-title">Tu manera de vivir</h3>
+          <p class="Ways-text">Un proyecto pensado para mantener intacta la capacidad de elegir: hoy, mañana y en los años que vienen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comunidad -->
+  <section class="Community" id="comunidad" aria-labelledby="comunidad-title">
+    <figure class="Photo Community-media rv-img is-parallax">
+      <picture>
+        <source type="image/avif" srcset="assets/images/06-terraza-compartida-800.avif 800w, assets/images/06-terraza-compartida-1392.avif 1392w" sizes="(min-width: 896px) 55vw, 100vw">
+        <source type="image/webp" srcset="assets/images/06-terraza-compartida-800.webp 800w, assets/images/06-terraza-compartida-1392.webp 1392w" sizes="(min-width: 896px) 55vw, 100vw">
+        <img class="Photo-img" src="assets/images/06-terraza-compartida-800.jpg" srcset="assets/images/06-terraza-compartida-800.jpg 800w, assets/images/06-terraza-compartida-1392.jpg 1392w" sizes="(min-width: 896px) 55vw, 100vw" width="1392" height="1288" alt="Terraza compartida con mesa larga, pérgola y vistas al atardecer" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    <div class="Community-body">
+      <p class="u-eyebrow rv">El modelo de comunidad</p>
+      <h2 class="u-srOnly" id="comunidad-title">El modelo de comunidad</h2>
+      <p class="Community-statement rv">Un lugar donde tener tu propio espacio y, al mismo tiempo, la oportunidad de compartir una forma de vida con personas que tienen inquietudes similares.</p>
+      <ul class="Community-tags rv" aria-label="Ideas que guían la comunidad">
+        <li class="Community-tag">Convivencia</li>
+        <li class="Community-tag">Participación</li>
+        <li class="Community-tag">Actividades compartidas</li>
+        <li class="Community-tag">Intimidad</li>
+      </ul>
+      <p class="Community-note rv">Los espacios comunes, servicios y la organización de la comunidad se definirán junto con el proyecto. Solo los comunicaremos cuando estén confirmados.</p>
+    </div>
+  </section>
+
+  <!-- Diferencias -->
+  <section class="Section" id="diferentes" aria-labelledby="diff-title">
+    <div class="u-container">
+      <div class="Diff-head">
+        <div>
+          <p class="u-eyebrow rv">Qué nos hace diferentes</p>
+          <h2 class="Section-title rv" id="diff-title">Tú decides cómo vivir. Nosotros te acompañamos.</h2>
+        </div>
+        <p class="Section-lead rv">Un proyecto de vida en comunidad, con la experiencia de un equipo inmobiliario y jurídico detrás.</p>
+      </div>
+      <ol class="Diff-list rv-group">
+        <li class="Diff-item">
+          <h3 class="Diff-title">Un proyecto en manos de profesionales</h3>
+          <p class="Diff-text">Detrás hay un equipo inmobiliario y un despacho de abogados con más de 30 años de experiencia. Nos ocupamos de la gestión técnica, jurídica e inmobiliaria para que tú puedas centrarte en decidir cómo quieres vivir.</p>
+        </li>
+        <li class="Diff-item">
+          <h3 class="Diff-title">Te acompañamos con tu vivienda actual</h3>
+          <p class="Diff-text">Dar este paso suele empezar por una pregunta: ¿qué hago con mi casa? Si tienes una vivienda en España, te ayudamos a venderla o alquilarla, y te asesoramos sobre cómo encaja este cambio en la planificación de tu patrimonio y tu herencia.</p>
+        </li>
+        <li class="Diff-item">
+          <h3 class="Diff-title">En el norte de España, abierto a quien llega de fuera</h3>
+          <p class="Diff-text">Veranos suaves, paisaje verde y la tranquilidad del norte. Si vienes de otro país, te atendemos en español o en inglés, también por videollamada, y te explicamos cada trámite, como el NIE.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section class="Section Section--sand" id="como-funciona" aria-labelledby="steps-title">
+    <div class="u-container">
+      <div class="Steps-head">
+        <p class="u-eyebrow rv">Cómo funciona</p>
+        <h2 class="Section-title rv" id="steps-title">Paso a paso, sin prisas.</h2>
+        <p class="Section-lead rv">Así será el camino desde que nos escribes hasta que el proyecto sea una realidad. Tú decides cuándo dar cada paso.</p>
+      </div>
+      <ol class="Steps rv-group">
+        <li class="Steps-item"><h3 class="Steps-title">Nos cuentas qué buscas</h3><p class="Steps-text">Rellenas el formulario o nos llamas. Sin compromiso.</p></li>
+        <li class="Steps-item"><h3 class="Steps-title">Hablamos contigo</h3><p class="Steps-text">Te presentamos el proyecto en persona o por videollamada y resolvemos tus dudas.</p></li>
+        <li class="Steps-item"><h3 class="Steps-title">Recibes toda la información</h3><p class="Steps-text">Cuando estén definidas, te enviamos por escrito la ubicación y las condiciones del proyecto.</p></li>
+        <li class="Steps-item"><h3 class="Steps-title">Decides con calma</h3><p class="Steps-text">Revisas la documentación con tu familia o tu asesor. Solo entonces te unes como socio.</p></li>
+        <li class="Steps-item"><h3 class="Steps-title">Te acompañamos hasta el final</h3><p class="Steps-text">Te informamos de cada avance, desde el proyecto hasta la entrega.</p></li>
+      </ol>
+      <p class="Steps-cta rv"><a class="Button Button--primary" href="#contacto">Quiero conocer el proyecto</a></p>
+    </div>
+  </section>
+
+  <!-- Proyecto y contacto -->
+  <section class="Section Section--dark" id="proyecto" aria-labelledby="proyecto-title">
+    <div class="u-container Project">
+      <div>
+        <p class="u-eyebrow rv">El proyecto</p>
+        <h2 class="Section-title rv" id="proyecto-title">Un proyecto que empieza contigo.</h2>
+        <p class="Section-lead rv">Estamos trabajando en una nueva propuesta residencial que pone en el centro la independencia, la comunidad y la planificación del futuro.</p>
+        <p class="Section-lead rv">En esta primera etapa queremos compartir la visión del proyecto, escuchar a las personas interesadas y ofrecer información transparente a medida que se definan sus características.</p>
+        <h3 class="u-srOnly">Estado del proyecto</h3>
+        <ul class="Status rv-group">
+          <li class="Status-item is-done"><span class="Status-dot" aria-hidden="true"></span><span><span class="Status-label">Visión y concepto</span><span class="Status-meta">Definidos</span></span></li>
+          <li class="Status-item"><span class="Status-dot" aria-hidden="true"></span><span><span class="Status-label">Ubicación</span><span class="Status-meta">Norte de España · emplazamiento por confirmar</span></span></li>
+          <li class="Status-item"><span class="Status-dot" aria-hidden="true"></span><span><span class="Status-label">Modelo jurídico y condiciones</span><span class="Status-meta">En definición</span></span></li>
+          <li class="Status-item"><span class="Status-dot" aria-hidden="true"></span><span><span class="Status-label">Proyecto arquitectónico</span><span class="Status-meta">Próximamente</span></span></li>
+        </ul>
+      </div>
+
+      <div class="Form rv" id="contacto">
+        <div class="Form-body">
+          <h3 class="Form-title">Quiero conocer el proyecto</h3>
+          <p class="Form-intro">Déjanos tus datos y te enviaremos novedades del proyecto a medida que se confirmen. Sin compromiso.</p>
+          <form id="lead-form" action="https://formsubmit.co/info@goldenchance.es" method="post" enctype="application/x-www-form-urlencoded" novalidate>
+            <div class="Form-field">
+              <label class="Form-label" for="f-name">Nombre</label>
+              <input class="Form-input" id="f-name" name="nombre" type="text" autocomplete="name" required aria-describedby="e-name">
+              <p class="Form-error" id="e-name" hidden>Escribe tu nombre.</p>
+            </div>
+            <div class="Form-field">
+              <label class="Form-label" for="f-email">Correo electrónico</label>
+              <input class="Form-input" id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+              <p class="Form-error" id="e-email" hidden>Escribe un correo válido, por ejemplo nombre@correo.es.</p>
+            </div>
+            <div class="Form-field">
+              <label class="Form-label" for="f-phone">Teléfono <span class="Form-optional">(opcional)</span></label>
+              <input class="Form-input" id="f-phone" name="telefono" type="tel" autocomplete="tel">
+            </div>
+            <fieldset class="Form-fieldset">
+              <legend class="Form-legend">¿Qué te interesa recibir?</legend>
+              <label class="Form-choice"><input class="Form-check" type="checkbox" name="interes" value="novedades"> Novedades del proyecto</label>
+              <label class="Form-choice"><input class="Form-check" type="checkbox" name="interes" value="dossier"> El dossier informativo cuando esté disponible</label>
+              <label class="Form-choice"><input class="Form-check" type="checkbox" name="interes" value="llamada"> Una llamada o videollamada para resolver dudas</label>
+            </fieldset>
+            <div class="Form-field">
+              <label class="Form-label" for="f-country">País de residencia <span class="Form-optional">(opcional)</span></label>
+              <input class="Form-input" id="f-country" name="pais" type="text" autocomplete="country-name">
+            </div>
+            <div class="Form-field">
+              <label class="Form-label" for="f-lang">Idioma de contacto</label>
+              <select class="Form-select" id="f-lang" name="idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+            <div class="Form-field">
+              <label class="Form-label" for="f-who">Me intereso por el proyecto…</label>
+              <select class="Form-select" id="f-who" name="perfil">
+                <option value="">Prefiero no indicarlo</option>
+                <option>Para mí</option>
+                <option>Para mí y mi pareja</option>
+                <option>Para un familiar</option>
+              </select>
+            </div>
+            <label class="Form-choice">
+              <input class="Form-check" type="checkbox" id="f-privacy" name="privacidad" required aria-describedby="e-privacy">
+              <span>He leído y acepto la <a href="html/legal.html#privacidad" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</span>
+            </label>
+            <p class="Form-error" id="e-privacy" hidden>Necesitamos tu aceptación para poder contactarte.</p>
+            <p class="Form-legal">Responsable: GOLDENCHANCE, S.L. Finalidad: informarte sobre el proyecto Golden Chance Senior. Legitimación: tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, supresión y demás en cualquier momento. Más información en la <a href="html/legal.html#privacidad" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</p>
+            <p class="Form-honeypot" aria-hidden="true"><label>No rellenar <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
+            <p class="Form-error" id="e-send" role="alert" tabindex="-1" hidden><span>No hemos podido enviar tu solicitud. Inténtalo de nuevo o escríbenos a</span> <a href="mailto:info@goldenchance.es">info@goldenchance.es</a>.</p>
+            <button class="Button Button--primary Form-submit" type="submit">Enviar solicitud</button>
+          </form>
+        </div>
+        <div class="Form-success" role="status" tabindex="-1" id="form-success">
+          <h3 class="Form-title">Gracias por tu interés</h3>
+          <p>Hemos recibido tu solicitud. Te escribiremos cuando haya novedades del proyecto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiénes somos -->
+  <section class="Section" id="quienes-somos" aria-labelledby="about-title">
+    <div class="u-container About">
+      <div>
+        <p class="u-eyebrow rv">Quién está detrás</p>
+        <h2 class="Section-title rv" id="about-title">Un proyecto impulsado por Golden Chance.</h2>
+        <p class="Section-lead rv">Golden Chance es una inmobiliaria de Burgos que acompaña a cada cliente con trato personalizado y seguridad en cada operación.</p>
+        <ul class="About-facts rv-group">
+          <li class="About-fact"><strong class="About-factTitle">Trato personalizado</strong>Atención directa y cercana en cada paso.</li>
+          <li class="About-fact"><strong class="About-factTitle">Respaldo jurídico</strong>Un despacho de abogados con más de 30 años de experiencia.</li>
+          <li class="About-fact"><strong class="About-factTitle">Patrimonio y herencias</strong>Asesoramiento en propiedades y planificación patrimonial.</li>
+        </ul>
+        <p class="About-disclaimer rv">El equipo técnico y las entidades colaboradoras específicas del proyecto sénior se presentarán cuando estén confirmados.</p>
+      </div>
+      <figure class="Photo About-media rv-img is-parallax">
+        <picture>
+          <source type="image/avif" srcset="assets/images/07-materiales-900.avif 900w, assets/images/07-materiales-1600.avif 1600w" sizes="(min-width: 896px) 60vw, 240vw">
+          <source type="image/webp" srcset="assets/images/07-materiales-900.webp 900w, assets/images/07-materiales-1600.webp 1600w" sizes="(min-width: 896px) 60vw, 240vw">
+          <img class="Photo-img" src="assets/images/07-materiales-900.jpg" srcset="assets/images/07-materiales-900.jpg 900w, assets/images/07-materiales-1600.jpg 1600w" sizes="(min-width: 896px) 60vw, 240vw" width="1600" height="823" alt="Muestras de madera de olivo, piedra, lino y cerámica" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Preguntas frecuentes -->
+  <section class="Section Section--sand" id="preguntas" aria-labelledby="faq-title">
+    <div class="u-container Faq">
+      <div class="Faq-head">
+        <p class="u-eyebrow rv">Preguntas frecuentes</p>
+        <h2 class="Section-title rv" id="faq-title">Lo que probablemente te estás preguntando.</h2>
+        <p class="Section-lead rv">Si tu duda no está aquí, <a href="#contacto">escríbenos</a>.</p>
+      </div>
+      <div class="rv-group">
+        <details class="Faq-item"><summary class="Faq-q">¿Qué es Golden Chance Senior?</summary><p class="Faq-a">Es un nuevo proyecto residencial impulsado por Golden Chance para personas que quieren vivir su etapa sénior con independencia, en un entorno que facilite la vida en comunidad.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Es una residencia de mayores?</summary><p class="Faq-a">No. No es un centro asistencial. Es una propuesta de vivienda pensada para personas autónomas que quieren seguir decidiendo cómo vivir.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Dónde estará ubicado el proyecto?</summary><p class="Faq-a">El proyecto está previsto en el norte de España. El emplazamiento concreto está pendiente de confirmación; lo compartiremos en cuanto esté definido.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Cómo funciona la cooperativa? ¿Seré propietario?</summary><p class="Faq-a">Será una cooperativa de viviendas: los futuros residentes se unen como socios y aportan el dinero para construir sus propias viviendas. Si cada socio tendrá su vivienda en propiedad o en uso se está definiendo; antes de pedir ningún compromiso, te lo explicaremos por escrito.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Estará protegido el dinero que aporte?</summary><p class="Faq-a">La ley obliga a garantizar las cantidades que los socios adelantan para la construcción, mediante aval o seguro y una cuenta bancaria especial. Antes de pedir ninguna aportación, te detallaremos por escrito las garantías concretas del proyecto.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Cuánto costará y cuándo estará listo?</summary><p class="Faq-a">Aún no hay condiciones económicas ni calendario. No publicaremos cifras ni fechas hasta que estén confirmadas, e informaremos de cada avance a las personas inscritas.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Qué hago con mi vivienda actual?</summary><p class="Faq-a">Depende de tu situación y de tus planes. Si tu vivienda está en España, Golden Chance puede ayudarte a venderla o alquilarla. También te asesoramos sobre cómo encaja este paso en la planificación de tu patrimonio y tu herencia.</p></details>
+        <details class="Faq-item"><summary class="Faq-q">¿Puedo participar si no vivo en España?</summary><p class="Faq-a">Sí, el proyecto está abierto también a personas de otros países. Te atendemos en español o en inglés y, cuando se confirmen las condiciones, te explicaremos los requisitos y trámites, como el NIE (número de identidad de extranjero).</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Pie de página -->
+<footer class="Footer">
+  <div class="u-container">
+    <div class="Footer-grid">
+      <div>
+        <a class="Brand Footer-brand" href="#inicio"><img class="Brand-logo" src="assets/icons/logo-golden-chance-oro-marfil.webp" width="543" height="214" alt="Golden Chance"><span class="Brand-sub">Senior</span></a>
+        <p class="Footer-text">Una nueva forma de vivir. A tu manera. Proyecto en desarrollo: la información se actualizará a medida que se confirme.</p>
+      </div>
+      <div>
+        <p class="Footer-title">Contacto</p>
+        <ul class="Footer-list">
+          <li><a href="#contacto">Solicitar información</a></li>
+          <li><a href="mailto:info@goldenchance.es">info@goldenchance.es</a></li>
+          <li><a href="tel:+34600249279">+34 600 249 279</a></li>
+          <li><a href="https://www.goldenchance.es/">goldenchance.es</a></li>
+          <li>Burgos</li>
+        </ul>
+      </div>
+      <div>
+        <p class="Footer-title">Legal</p>
+        <ul class="Footer-list">
+          <li><a href="html/legal.html#privacidad">Política de privacidad</a></li>
+          <li><a href="html/legal.html#aviso-legal">Aviso legal</a></li>
+          <li><a href="html/legal.html#cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="Footer-bottom">
+      <span>© 2026 Golden Chance</span>
+      <span>Las imágenes son de referencia y no corresponden al proyecto final.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Llamada fija inferior en móvil y tablet -->
+<div class="StickyCta" aria-hidden="true">
+  <a class="Button Button--primary" href="#contacto" tabindex="-1">Quiero conocer el proyecto</a>
+</div>
+</body>
+</html>
