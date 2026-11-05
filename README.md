@@ -26,7 +26,7 @@ Web publicada: https://golden-chance-senior.vercel.app/
 | **FormSubmit** | Envío del formulario al correo de Golden Chance (sin servidor propio) |
 | **Vercel** | Alojamiento y despliegue automático desde GitHub |
 
-Las tipografías (Fraunces y Source Sans 3) se alojan en el propio proyecto: la web no hace peticiones a servicios externos de fuentes.
+Las tipografías (Libre Caslon Text y Source Sans 3) se alojan en el propio proyecto: la web no hace peticiones a servicios externos de fuentes.
 
 ---
 
@@ -49,7 +49,7 @@ golden-chance-senior/
 │   ├── home.js               # Scroll, aparición, parallax, llamada fija y formulario
 │   └── legal.js              # Cambio de idioma de la página legal
 └── assets/
-    ├── fonts/                # WOFF2 de Fraunces y Source Sans 3
+    ├── fonts/                # WOFF2 de Libre Caslon Text y Source Sans 3
     ├── icons/                # Logotipo y favicons
     └── images/               # Fotografías en AVIF, WebP y JPG (dos tamaños)
 ```

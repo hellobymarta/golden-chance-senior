@@ -117,7 +117,7 @@
 }
 
 .Hero-media .Photo-img {
-  object-position: 40% 50%;
+  object-position: 58% 50%;
 }
 
 .Hero-content {
@@ -289,7 +289,7 @@
 }
 
 .Ways-item:nth-child(1) .Photo-img {
-  object-position: 34% 50%;
+  object-position: 40% 50%;
 }
 
 .Ways-item:nth-child(2) .Photo-img {
@@ -715,7 +715,7 @@
   display: block;
   font-family: var(--font-serif);
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .About-disclaimer {

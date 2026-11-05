@@ -25,27 +25,19 @@
    a servicios externos)
 ========================================================== */
 @font-face {
-  font-family: "Fraunces";
+  font-family: "Libre Caslon Text";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../assets/fonts/fraunces-latin-400-normal.woff2") format("woff2");
+  src: url("../assets/fonts/libre-caslon-text-latin-400-normal.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Fraunces";
+  font-family: "Libre Caslon Text";
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url("../assets/fonts/fraunces-latin-400-italic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Fraunces";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../assets/fonts/fraunces-latin-500-normal.woff2") format("woff2");
+  src: url("../assets/fonts/libre-caslon-text-latin-400-italic.woff2") format("woff2");
 }
 
 @font-face {
@@ -92,7 +84,7 @@
   --color-line: #d8d0be;
   --color-error: #a4262c;
 
-  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
   --font-sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Escala tipográfica fluida */
@@ -177,7 +169,7 @@ h2,
 h3 {
   margin: 0;
   font-family: var(--font-serif);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.12;
   letter-spacing: -0.01em;
 }
