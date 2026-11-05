@@ -77,18 +77,6 @@
   object-fit: cover;
 }
 
-.Photo-note {
-  position: absolute;
-  right: 0.75rem;
-  bottom: 0.75rem;
-  z-index: var(--z-photoNote);
-  padding: 0.2rem 0.55rem;
-  border-radius: 2px;
-  background-color: rgb(48 53 47 / 0.72);
-  color: var(--color-white);
-  font-size: 0.75rem;
-}
-
 /* ==========================================================
    PORTADA (HERO)
 ========================================================== */
@@ -224,19 +212,11 @@
 ========================================================== */
 .Philosophy {
   display: grid;
-  gap: 3rem;
-}
-
-.Philosophy-media {
-  aspect-ratio: 4 / 5;
-}
-
-.Philosophy-media .Photo-img {
-  object-position: 48% 50%;
+  gap: 2.5rem;
 }
 
 .Philosophy-list {
-  margin: 2.5rem 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
   counter-reset: motive;
@@ -893,7 +873,6 @@
 }
 
 @media (min-width: 576px) {
-  .Philosophy-media,
   .Ways-media {
     aspect-ratio: 3 / 2;
   }
@@ -946,13 +925,12 @@
 @media (min-width: 896px) {
   .Philosophy {
     grid-template-columns: 5fr 6fr;
-    align-items: center;
+    align-items: start;
     gap: clamp(3rem, 7vw, 7rem);
   }
 
-  .Philosophy-media {
-    aspect-ratio: 4 / 5;
-    margin-left: calc(var(--gutter) * -1);
+  .Philosophy-body {
+    padding-top: 2.75rem;
   }
 
   .Ways-head,

@@ -123,7 +123,6 @@
   --z-heroMedia: -2;
   --z-heroOverlay: -1;
   --z-curtain: 1;
-  --z-photoNote: 2;
   --z-stickyCta: 40;
   --z-header: 50;
   --z-skipLink: 100;
@@ -491,31 +490,27 @@ a {
   flex: none;
   align-self: center;
   display: flex;
-  align-items: center;
+  gap: 2px;
   margin-left: auto;
+  padding: 3px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
 }
 
 .Lang-btn {
-  position: relative;
-  min-width: 2.25rem;
-  min-height: 2.5rem;
-  padding: 0 0.5rem;
+  min-width: 2.5rem;
+  min-height: 2rem;
+  padding: 0 0.65rem;
   border: 0;
+  border-radius: 999px;
   background-color: transparent;
   color: var(--color-muted);
-  font: 500 0.8125rem var(--font-sans);
+  font: 600 0.75rem var(--font-sans);
   letter-spacing: 0.08em;
   cursor: pointer;
-}
-
-.Lang-btn + .Lang-btn::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 0.9em;
-  margin-top: -0.45em;
-  border-left: 1px solid var(--color-line);
+  transition:
+    background-color var(--duration-350) var(--ease-out),
+    color var(--duration-350) var(--ease-out);
 }
 
 .Lang-btn:hover {
@@ -527,12 +522,8 @@ a {
 }
 
 .Lang-btn[aria-pressed="true"] {
-  color: var(--color-charcoal);
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: var(--color-terracotta);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.45em;
+  background-color: var(--color-charcoal);
+  color: var(--color-ivory);
 }
 
 /* ==========================================================
