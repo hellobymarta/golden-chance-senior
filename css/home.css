@@ -232,7 +232,7 @@
 }
 
 .Philosophy-media .Photo-img {
-  object-position: 28% 50%;
+  object-position: 48% 50%;
 }
 
 .Philosophy-list {
@@ -289,15 +289,15 @@
 }
 
 .Ways-item:nth-child(1) .Photo-img {
-  object-position: 40% 50%;
+  object-position: 34% 50%;
 }
 
 .Ways-item:nth-child(2) .Photo-img {
-  object-position: 30% 50%;
+  object-position: 50% 55%;
 }
 
 .Ways-item:nth-child(3) .Photo-img {
-  object-position: 49% 50%;
+  object-position: 44% 50%;
 }
 
 .Ways-title {
@@ -322,6 +322,10 @@
 
 .Community-media {
   min-height: 22rem;
+}
+
+.Community-media .Photo-img {
+  object-position: 64% 60%;
 }
 
 .Community-body {
@@ -363,6 +367,34 @@
   border-top: 1px solid rgb(246 242 233 / 0.25);
   color: #e4e2d6;
   font-size: 0.9375rem;
+}
+
+/* ==========================================================
+   ENTORNO
+========================================================== */
+.Setting-head {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.Setting-grid {
+  display: grid;
+  gap: clamp(2rem, 3vw, 2.5rem);
+}
+
+.Setting-item {
+  margin: 0;
+}
+
+.Setting-media {
+  aspect-ratio: 4 / 3;
+  margin-bottom: 0.9rem;
+}
+
+.Setting-caption {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
 }
 
 /* ==========================================================
@@ -890,6 +922,14 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .Setting-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .Setting-media {
+    aspect-ratio: 4 / 5;
+  }
+
   .Ways-item:nth-child(2) {
     margin-top: 4rem;
   }
@@ -916,12 +956,14 @@
   }
 
   .Ways-head,
+  .Setting-head,
   .Diff-head {
     grid-template-columns: 1fr 1fr;
     align-items: end;
   }
 
   .Ways-head .Section-lead,
+  .Setting-head .Section-lead,
   .Diff-head .Section-lead {
     margin: 0;
   }
@@ -1142,6 +1184,8 @@
 
   .Ways-item:nth-child(2) .rv-img { --delay: 140ms; }
   .Ways-item:nth-child(3) .rv-img { --delay: 280ms; }
+  .Setting-item:nth-child(2) .rv-img { --delay: 140ms; }
+  .Setting-item:nth-child(3) .rv-img { --delay: 280ms; }
 }
 
 @media (prefers-reduced-motion: no-preference) and (scripting: enabled) and (hover: hover) {

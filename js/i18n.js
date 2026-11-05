@@ -177,12 +177,21 @@
     "Aviso legal": "Legal notice",
     "Las imágenes son de referencia y no corresponden al proyecto final.": "Images are for reference only and do not show the final development.",
     "Patio con olivo frente a una vivienda de líneas sencillas y grandes ventanales": "Courtyard with an olive tree in front of a clean-lined home with large windows",
-    "Un grupo de amigos conversa alrededor de una mesa en un jardín soleado": "A group of friends chatting around a table in a sunny garden",
-    "Patio privado con sofá, olivo y luz natural": "Private courtyard with a sofa, olive tree and natural light",
-    "Vecinos jugando a la petanca en un jardín comunitario junto a un porche de madera": "Neighbours playing pétanque in a shared garden next to a wooden porch",
-    "Una mujer pasea por un camino de piedra entre jardines": "A woman walking along a stone path between gardens",
-    "Terraza compartida con mesa larga, pérgola y vistas al atardecer": "Shared terrace with a long table, pergola and sunset views",
-    "Muestras de madera de olivo, piedra, lino y cerámica": "Samples of olive wood, stone, linen and ceramics"
+    "Acantilados verdes sobre el mar Cantábrico en un día despejado": "Green cliffs above the Cantabrian Sea on a clear day",
+    "Dos amigas se ríen mientras toman un café en un parque": "Two friends laughing over coffee in a park",
+    "Cabaña de piedra en un valle de montaña junto a un camino": "Stone cabin beside a path in a mountain valley",
+    "Tres amigos mayores juegan al ajedrez en un banco del parque": "Three older friends playing chess on a park bench",
+    "Una pareja mayor pasea abrazada por un camino arbolado": "An older couple walking arm in arm along a tree-lined road",
+    "Calle empedrada de un pueblo de piedra con geranios en los balcones": "Cobbled street in a stone village with geraniums on the balconies",
+    "Manos de un arquitecto dibujando a mano los planos de una vivienda": "An architect's hands sketching the plans for a home by hand",
+    "Una pareja mayor descansa sobre una roca frente a un lago de montaña": "An older couple resting on a rock by a mountain lake",
+    "Una pareja mayor camina por un sendero de montaña entre pinos": "An older couple walking along a mountain trail through the pines",
+    "El entorno": "The setting",
+    "Entre el mar y la montaña.": "Between the sea and the mountains.",
+    "Un entorno de costa, pueblos de piedra y montaña en el norte de España. La ubicación exacta se comunicará cuando esté confirmada.": "Coastline, stone villages and mountains in northern Spain. We will share the exact location once it is confirmed.",
+    "El mar Cantábrico": "The Cantabrian Sea",
+    "Pueblos con historia": "Villages steeped in history",
+    "La montaña, cerca": "Mountains close by"
   };
 
   const root = document.documentElement;
