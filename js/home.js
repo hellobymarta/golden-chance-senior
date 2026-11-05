@@ -40,12 +40,14 @@
   const root = document.documentElement;
   const header = document.querySelector(".Header");
   const progressBar = document.querySelector(".Header-progress");
-  const hero = document.querySelector(".Hero");
+  /* La portada es sticky y nunca sale de pantalla: se mide con la
+     sección que viene después */
+  const afterHero = document.querySelector(".Hero + *");
   const contactBlock = document.querySelector("#contacto");
   const stickyCta = document.querySelector(".StickyCta");
   const revealItems = document.querySelectorAll(".rv, .rv-img, .rv-group");
   const parallaxItems = document.querySelectorAll(".is-parallax");
-  const settingLayers = document.querySelectorAll(".Setting-layer");
+  const settingScenes = document.querySelectorAll(".Setting-layer, .Setting-indexItem");
   const settingPanels = document.querySelectorAll(".Setting-panel[data-scene]");
   const leadForm = document.querySelector("#lead-form");
   const nameInput = document.querySelector("#f-name");
@@ -73,8 +75,11 @@
     stickyCta.classList.toggle("is-visible", isPastHero && !isNearForm);
   }
 
+  /** Se ha pasado la portada cuando la sección siguiente llega arriba. */
   function heroObserverHandler(entries) {
-    isPastHero = !entries[0].isIntersecting;
+    const entry = entries[0];
+
+    isPastHero = entry.isIntersecting || entry.boundingClientRect.top < 0;
     updateStickyCta();
   }
 
@@ -93,10 +98,10 @@
     });
   }
 
-  /** Muestra la foto de fondo que corresponde a la escena indicada. */
+  /** Activa la foto de fondo y la etiqueta del índice de la escena indicada. */
   function showSettingScene(scene) {
-    settingLayers.forEach((layer) => {
-      layer.classList.toggle("is-active", layer.dataset.scene === scene);
+    settingScenes.forEach((element) => {
+      element.classList.toggle("is-active", element.dataset.scene === scene);
     });
   }
 
@@ -254,7 +259,9 @@
       threshold: 0.12,
     });
 
-    new IntersectionObserver(heroObserverHandler).observe(hero);
+    new IntersectionObserver(heroObserverHandler, {
+      rootMargin: "0px 0px -95% 0px",
+    }).observe(afterHero);
     new IntersectionObserver(contactObserverHandler).observe(contactBlock);
     revealItems.forEach((item) => revealObserver.observe(item));
 

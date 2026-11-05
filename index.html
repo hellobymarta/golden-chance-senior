@@ -223,6 +223,15 @@ e integradas manualmente.
 
   <!-- Entorno: fondo fijo que cambia de foto mientras el texto pasa por encima -->
   <section class="Setting" id="entorno" aria-labelledby="entorno-title">
+    <div class="Setting-head">
+      <div class="u-container Setting-headInner">
+        <div>
+          <p class="u-eyebrow rv">El entorno</p>
+          <h2 class="Section-title rv" id="entorno-title">Entre el mar y la montaña.</h2>
+        </div>
+        <p class="Section-lead rv">Un entorno de costa, pueblos de piedra y montaña en el norte de España. La ubicación exacta se comunicará cuando esté confirmada.</p>
+      </div>
+    </div>
     <div class="Setting-stage">
       <picture class="Setting-layer is-active" data-scene="costa">
         <source type="image/avif" srcset="assets/images/entorno-costa-1000.avif 1000w, assets/images/entorno-costa-1920.avif 1920w" sizes="(orientation: portrait) 300vw, 100vw">
@@ -239,15 +248,13 @@ e integradas manualmente.
         <source type="image/webp" srcset="assets/images/entorno-montana-1000.webp 1000w, assets/images/entorno-montana-1920.webp 1920w" sizes="(orientation: portrait) 320vw, 100vw">
         <img class="Setting-img" src="assets/images/entorno-montana-1000.jpg" srcset="assets/images/entorno-montana-1000.jpg 1000w, assets/images/entorno-montana-1920.jpg 1920w" sizes="(orientation: portrait) 320vw, 100vw" width="1920" height="1280" alt="Cabaña de piedra en un valle de montaña junto a un camino" loading="lazy" decoding="async">
       </picture>
+      <ol class="Setting-index" aria-hidden="true">
+        <li class="Setting-indexItem is-active" data-scene="costa">El mar</li>
+        <li class="Setting-indexItem" data-scene="pueblo">Los pueblos</li>
+        <li class="Setting-indexItem" data-scene="montana">La montaña</li>
+      </ol>
     </div>
     <div class="Setting-scroll">
-      <div class="u-container Setting-panel">
-        <div class="Setting-card Setting-card--intro rv">
-          <p class="u-eyebrow">El entorno</p>
-          <h2 class="Section-title" id="entorno-title">Entre el mar y la montaña.</h2>
-          <p class="Setting-text">Un entorno de costa, pueblos de piedra y montaña en el norte de España. La ubicación exacta se comunicará cuando esté confirmada.</p>
-        </div>
-      </div>
       <div class="u-container Setting-panel" data-scene="costa">
         <article class="Setting-card rv">
           <h3 class="Setting-title">El mar Cantábrico</h3>
@@ -271,12 +278,10 @@ e integradas manualmente.
 
   <!-- Diferencias -->
   <section class="Section" id="diferentes" aria-labelledby="diff-title">
-    <div class="u-container">
+    <div class="u-container Diff">
       <div class="Diff-head">
-        <div>
-          <p class="u-eyebrow rv">Qué nos hace diferentes</p>
-          <h2 class="Section-title rv" id="diff-title">Tú decides cómo vivir. Nosotros te acompañamos.</h2>
-        </div>
+        <p class="u-eyebrow rv">Qué nos hace diferentes</p>
+        <h2 class="Section-title rv" id="diff-title">Tú decides cómo vivir. Nosotros te acompañamos.</h2>
         <p class="Section-lead rv">Un proyecto de vida en comunidad, con la experiencia de un equipo inmobiliario y jurídico detrás.</p>
       </div>
       <ol class="Diff-list rv-group">

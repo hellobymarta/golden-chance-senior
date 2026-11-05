@@ -80,12 +80,21 @@
 /* ==========================================================
    PORTADA (HERO)
 ========================================================== */
+/* La portada se queda fija y el resto de la página sube por encima,
+   como un telón. Cada sección siguiente necesita su propio fondo. */
 .Hero {
-  position: relative;
+  position: sticky;
+  top: 0;
   isolation: isolate;
   display: grid;
   min-height: min(92vh, 56rem);
+  background-color: var(--color-charcoal);
   color: var(--color-white);
+}
+
+:where(.Hero ~ *) {
+  position: relative;
+  background-color: var(--color-ivory);
 }
 
 .Hero::after {
@@ -359,6 +368,17 @@
   background-color: var(--color-charcoal);
 }
 
+/* Cabecera normal; después, una foto por tarjeta */
+.Setting-head {
+  padding-block: var(--space-section) clamp(3rem, 6vw, 5rem);
+  background-color: var(--color-ivory);
+}
+
+.Setting-headInner {
+  display: grid;
+  gap: 1.5rem;
+}
+
 .Setting-stage {
   position: sticky;
   top: 0;
@@ -382,6 +402,22 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Degradado suave arriba y abajo para dar profundidad y que el
+   índice de escenas se lea sobre cualquier foto */
+.Setting-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(30 34 28 / 0.3), transparent 28%),
+    linear-gradient(0deg, rgb(30 34 28 / 0.45), transparent 32%);
+  pointer-events: none;
+}
+
+.Setting-index {
+  display: none;
 }
 
 .Setting-layer[data-scene="costa"] .Setting-img {
@@ -410,11 +446,6 @@
   min-height: 90svh;
 }
 
-.Setting-panel:first-child {
-  min-height: 100vh;
-  min-height: 100svh;
-}
-
 .Setting-card {
   max-width: 26rem;
   padding: clamp(1.75rem, 4vw, 2.5rem);
@@ -423,13 +454,6 @@
   box-shadow: 0 24px 60px rgb(20 24 18 / 0.22);
 }
 
-.Setting-card--intro {
-  max-width: 34rem;
-}
-
-.Setting-card--intro .Section-title {
-  margin-bottom: 1rem;
-}
 
 .Setting-title {
   margin-bottom: 0.6rem;
@@ -439,6 +463,31 @@
 .Setting-text {
   margin: 0;
   color: var(--color-muted);
+}
+
+.Setting-indexItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgb(255 253 248 / 0.6);
+  transition: color var(--duration-600) var(--ease-out);
+}
+
+.Setting-indexItem::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background-color: currentColor;
+  transform-origin: 0 50%;
+  transition: transform var(--duration-600) var(--ease-out);
+}
+
+.Setting-indexItem.is-active {
+  color: var(--color-white);
+}
+
+.Setting-indexItem.is-active::before {
+  transform: scaleX(2);
 }
 
 /* ==========================================================
@@ -452,17 +501,33 @@
 
 .Diff-list {
   display: grid;
-  gap: 2.5rem;
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
   counter-reset: diff;
 }
 
+/* Tarjetas que se apilan: cada una se queda fija un poco más abajo
+   que la anterior y la siguiente sube por encima */
 .Diff-item {
+  --stack: 0;
   counter-increment: diff;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-line);
+  position: sticky;
+  top: calc(6rem + var(--stack) * 1rem);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background-color: var(--color-white);
+  box-shadow: 0 -12px 40px rgb(48 53 47 / 0.08);
+}
+
+.Diff-item:nth-child(2) {
+  --stack: 1;
+}
+
+.Diff-item:nth-child(3) {
+  --stack: 2;
 }
 
 .Diff-item::before {
@@ -965,8 +1030,24 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .Setting-index {
+    position: absolute;
+    right: var(--gutter);
+    bottom: 2.5rem;
+    z-index: var(--z-curtain);
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
   /* Las tarjetas se alternan: la de los pueblos va a la derecha */
-  .Setting-panel:nth-child(3) {
+  .Setting-panel:nth-child(2) {
     justify-content: flex-end;
   }
 
@@ -995,14 +1076,35 @@
   }
 
   .Ways-head,
-  .Diff-head {
+  .Setting-headInner {
     grid-template-columns: 1fr 1fr;
     align-items: end;
   }
 
   .Ways-head .Section-lead,
-  .Diff-head .Section-lead {
+  .Setting-headInner .Section-lead {
     margin: 0;
+  }
+
+  .Diff {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: clamp(3rem, 7vw, 7rem);
+    align-items: start;
+  }
+
+  .Diff-head {
+    position: sticky;
+    top: 8rem;
+    margin-bottom: 0;
+  }
+
+  .Diff-list {
+    gap: 3rem;
+  }
+
+  .Diff-item {
+    top: calc(8rem + var(--stack) * 1.25rem);
   }
 
   .Community {
@@ -1013,10 +1115,6 @@
     max-width: 40rem;
   }
 
-  .Diff-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(2rem, 4vw, 4rem);
-  }
 
   .About {
     grid-template-columns: 6fr 5fr;
@@ -1274,6 +1372,16 @@
     transform: none;
   }
 
+  /* Entorno: la foto activa se aleja despacio al aparecer */
+  .Setting-img {
+    scale: 1.08;
+    transition: scale var(--duration-6000) var(--ease-out);
+  }
+
+  .Setting-layer.is-active .Setting-img {
+    scale: 1;
+  }
+
   .Ways-item:nth-child(2) .rv-img { --delay: 140ms; }
   .Ways-item:nth-child(3) .rv-img { --delay: 280ms; }
 }
@@ -1282,6 +1390,38 @@
   .Ways-item:hover .rv-img.is-in .Photo-img {
     scale: 1.06;
     transition: scale var(--duration-900) var(--ease-out);
+  }
+}
+
+/* Portada: al bajar, el texto se despide y la foto se oscurece mientras
+   la página sube por encima. Solo en navegadores con animaciones
+   ligadas al scroll; el resto ve la portada fija sin más. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .Hero-content {
+      animation: heroExit linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 75vh;
+    }
+
+    .Hero-media {
+      animation: heroDim linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 90vh;
+    }
+  }
+}
+
+@keyframes heroExit {
+  to {
+    opacity: 0;
+    translate: 0 -8vh;
+  }
+}
+
+@keyframes heroDim {
+  to {
+    opacity: 0.45;
   }
 }
 

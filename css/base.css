@@ -110,6 +110,7 @@
   --duration-400: 0.4s;
   --duration-450: 0.45s;
   --duration-500: 0.5s;
+  --duration-600: 0.6s;
   --duration-800: 0.8s;
   --duration-900: 0.9s;
   --duration-1000: 1s;
@@ -117,6 +118,7 @@
   --duration-1200: 1.2s;
   --duration-1800: 1.8s;
   --duration-2400: 2.4s;
+  --duration-6000: 6s;
   --duration-16000: 16s;
 
   /* Capas, de menor a mayor (ningún valor supera 100) */
@@ -618,6 +620,7 @@ a {
     --duration-400: 0.001ms;
     --duration-450: 0.001ms;
     --duration-500: 0.001ms;
+    --duration-600: 0.001ms;
     --duration-800: 0.001ms;
     --duration-900: 0.001ms;
     --duration-1000: 0.001ms;
@@ -625,6 +628,7 @@ a {
     --duration-1200: 0.001ms;
     --duration-1800: 0.001ms;
     --duration-2400: 0.001ms;
+    --duration-6000: 0.001ms;
     --duration-16000: 0.001ms;
   }
 

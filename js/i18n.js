@@ -192,6 +192,9 @@
     "Entre el mar y la montaña.": "Between the sea and the mountains.",
     "Un entorno de costa, pueblos de piedra y montaña en el norte de España. La ubicación exacta se comunicará cuando esté confirmada.": "Coastline, stone villages and mountains in northern Spain. We will share the exact location once it is confirmed.",
     "El mar Cantábrico": "The Cantabrian Sea",
+    "El mar": "The sea",
+    "Los pueblos": "The villages",
+    "La montaña": "The mountains",
     "Pueblos con historia": "Villages steeped in history",
     "La montaña, cerca": "Mountains close by"
   };
