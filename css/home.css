@@ -838,7 +838,7 @@
 .About-prints {
   position: relative;
   width: 100%;
-  max-width: 32rem;
+  max-width: 40rem;
   margin-inline: auto;
   aspect-ratio: 1 / 1.05;
 }
@@ -848,7 +848,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 62%;
+  width: 66%;
   margin: 0;
   padding: 0.6rem 0.6rem 2.6rem;
   background-color: var(--color-white);
@@ -868,7 +868,7 @@
   right: 0;
   bottom: 0;
   left: auto;
-  width: 58%;
+  width: 62%;
 }
 
 /* Cinta adhesiva semitransparente */
@@ -1231,7 +1231,7 @@
 
 
   .About {
-    grid-template-columns: 6fr 5fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
