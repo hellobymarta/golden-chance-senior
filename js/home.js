@@ -19,6 +19,7 @@
    - Llamada fija inferior en móvil y tablet.
    - Aparición de contenidos y parallax suave (IntersectionObserver).
    - Entorno: cambia la foto fija según la tarjeta que está en pantalla.
+   - Tarjetas y fotos arrastrables con el ratón (vuelven a su sitio).
    - Formulario: validación accesible y envío por FormSubmit.
 ========================================================== */
 
@@ -60,6 +61,7 @@
   const submitButton = document.querySelector(".Form-submit");
   const successMessage = document.querySelector("#form-success");
   const canAnimate = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+  const canDrag = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   /* ---------- Variables de estado ---------- */
   let isPastHero = false;
@@ -67,6 +69,7 @@
   let isHeaderScrolled = false;
   let isFrameRequested = false;
   const visibleParallaxItems = new Set();
+  const dragState = { element: null, startX: 0, startY: 0 };
 
   /* ---------- Funciones ---------- */
 
@@ -112,6 +115,45 @@
     if (activeEntry) {
       showSettingScene(activeEntry.target.dataset.scene);
     }
+  }
+
+  /** Empieza a arrastrar la tarjeta o foto que se ha pulsado. */
+  function dragStartHandler(event) {
+    const element = event.target.closest("[data-draggable]");
+
+    if (!element || event.button !== 0) {
+      return;
+    }
+
+    event.preventDefault();
+    dragState.element = element;
+    dragState.startX = event.clientX;
+    dragState.startY = event.clientY;
+    element.setPointerCapture(event.pointerId);
+    element.classList.add("is-dragging");
+  }
+
+  /** Mueve el elemento siguiendo al ratón. */
+  function dragMoveHandler(event) {
+    if (!dragState.element) {
+      return;
+    }
+
+    const deltaX = event.clientX - dragState.startX;
+    const deltaY = event.clientY - dragState.startY;
+
+    dragState.element.style.translate = `${deltaX}px ${deltaY}px`;
+  }
+
+  /** Al soltar, el elemento vuelve a su sitio con la transición del CSS. */
+  function dragEndHandler() {
+    if (!dragState.element) {
+      return;
+    }
+
+    dragState.element.classList.remove("is-dragging");
+    dragState.element.style.translate = "";
+    dragState.element = null;
   }
 
   /** Solo se calcula el parallax de las fotos que están en pantalla. */
@@ -281,5 +323,12 @@
   window.addEventListener("scroll", scrollHandler, { passive: true });
   window.addEventListener("resize", scrollHandler);
   leadForm?.addEventListener("submit", formSubmitHandler);
+
+  if (canDrag) {
+    document.addEventListener("pointerdown", dragStartHandler);
+    document.addEventListener("pointermove", dragMoveHandler);
+    document.addEventListener("pointerup", dragEndHandler);
+    document.addEventListener("pointercancel", dragEndHandler);
+  }
   renderScrollFrame();
 })();

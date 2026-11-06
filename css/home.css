@@ -464,6 +464,7 @@
 }
 
 .Setting-card {
+  position: relative;
   max-width: 26rem;
   padding: clamp(1.75rem, 4vw, 2.5rem);
   border-radius: var(--radius);
@@ -831,8 +832,94 @@
   gap: clamp(2.5rem, 6vw, 6rem);
 }
 
-.About-media {
-  aspect-ratio: 5 / 4;
+/* Dos fotos sueltas, como notas sobre la mesa: borde blanco de copia,
+   una tira de cinta arriba y una etiqueta tipo pósit. Ligeramente
+   giradas; al pasar el ratón se enderezan y pasan delante. */
+.About-prints {
+  position: relative;
+  width: 100%;
+  max-width: 32rem;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1.05;
+}
+
+.About-print {
+  --tilt: -4deg;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 62%;
+  margin: 0;
+  padding: 0.6rem 0.6rem 2.6rem;
+  background-color: var(--color-white);
+  box-shadow:
+    0 1px 2px rgb(48 53 47 / 0.12),
+    0 18px 40px rgb(48 53 47 / 0.16);
+  rotate: var(--tilt);
+  transition:
+    rotate var(--duration-500) var(--ease-out),
+    scale var(--duration-500) var(--ease-out),
+    box-shadow var(--duration-500) var(--ease-out);
+}
+
+.About-print--site {
+  --tilt: 3.5deg;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  width: 58%;
+}
+
+/* Cinta adhesiva semitransparente */
+.About-print::before {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  width: 5.5rem;
+  height: 1.5rem;
+  margin-left: -2.75rem;
+  background-color: rgb(236 229 214 / 0.82);
+  box-shadow: 0 1px 2px rgb(48 53 47 / 0.1);
+  rotate: 3deg;
+}
+
+.About-printImg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Pósit con el nombre de cada foto */
+.About-printNote {
+  position: absolute;
+  right: -0.75rem;
+  bottom: 1rem;
+  padding: 0.55rem 0.9rem;
+  background-color: #f3e3b6;
+  box-shadow: 0 6px 14px rgb(48 53 47 / 0.14);
+  color: var(--color-charcoal);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  rotate: -3deg;
+}
+
+.About-print--site .About-printNote {
+  right: auto;
+  left: -0.75rem;
+  rotate: 2.5deg;
+}
+
+.About-print:hover {
+  z-index: var(--z-printFront);
+  scale: 1.03;
+  rotate: 0deg;
+  box-shadow:
+    0 1px 2px rgb(48 53 47 / 0.12),
+    0 28px 60px rgb(48 53 47 / 0.22);
 }
 
 .About-facts {
@@ -1328,6 +1415,18 @@
     transform: none;
   }
 
+  /* Elementos arrastrables: además de su aparición, vuelven a su sitio
+     con rebote al soltarlos y mantienen sus giros suaves al pasar el ratón */
+  [data-draggable] {
+    transition:
+      opacity var(--duration-1000) var(--ease-out) var(--delay, 0ms),
+      transform var(--duration-1000) var(--ease-out) var(--delay, 0ms),
+      translate var(--duration-800) var(--ease-spring),
+      rotate var(--duration-500) var(--ease-out),
+      scale var(--duration-500) var(--ease-out),
+      box-shadow var(--duration-500) var(--ease-out);
+  }
+
   /* Listas: el observador marca solo el contenedor (.rv-group) y
      sus hijos aparecen escalonados según su posición */
   .rv-group > :nth-child(2) { --delay: 110ms; }
@@ -1411,6 +1510,25 @@
 
   .Ways-item:nth-child(2) .rv-img { --delay: 140ms; }
   .Ways-item:nth-child(3) .rv-img { --delay: 280ms; }
+}
+
+/* ==========================================================
+   ARRASTRAR (solo ratón): tarjetas del entorno y fotos de Quiénes somos.
+   Al soltar vuelven a su sitio con un pequeño rebote.
+========================================================== */
+@media (hover: hover) and (pointer: fine) {
+  [data-draggable] {
+    cursor: grab;
+    touch-action: none;
+  }
+
+  [data-draggable].is-dragging {
+    z-index: var(--z-dragging);
+    cursor: grabbing;
+    user-select: none;
+    rotate: -1.5deg;
+    transition: none;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) and (scripting: enabled) and (hover: hover) {
