@@ -188,6 +188,7 @@
     "Manos de un arquitecto dibujando a mano los planos de una vivienda": "An architect's hands sketching the plans for a home by hand",
     "Tres profesionales revisan los planos en una obra": "Three professionals reviewing plans on a building site",
     "El diseño": "The design",
+    "Conoce Golden Chance": "Discover Golden Chance",
     "La obra": "On site",
     "Una pareja mayor descansa sobre una roca frente a un lago de montaña": "An older couple resting on a rock by a mountain lake",
     "Una pareja mayor camina por un sendero de montaña entre pinos": "An older couple walking along a mountain trail through the pines",

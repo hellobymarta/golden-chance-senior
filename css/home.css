@@ -965,6 +965,24 @@
     0 28px 60px rgb(48 53 47 / 0.22);
 }
 
+/* Enlace a la web principal de Golden Chance */
+.About-link {
+  margin: 1.25rem 0 0;
+}
+
+.TextLink {
+  color: var(--color-terracottaInk);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  transition: text-underline-offset var(--duration-250) var(--ease-out);
+}
+
+.TextLink:hover {
+  text-underline-offset: 0.45em;
+}
+
 .About-facts {
   display: grid;
   gap: 1.25rem;
@@ -1207,7 +1225,7 @@
 
   .Hero-scroll {
     position: absolute;
-    bottom: 2rem;
+    bottom: 2.75rem;
     left: 50%;
     display: block;
     width: 1px;
