@@ -189,6 +189,12 @@
   background-color: #e3b9a3;
 }
 
+/* Indicador de scroll: una línea fina con un destello que baja.
+   Solo en escritorio, donde la portada tiene altura de sobra. */
+.Hero-scroll {
+  display: none;
+}
+
 /* ==========================================================
    PILARES
 ========================================================== */
@@ -213,6 +219,7 @@
 }
 
 .Pillars-name {
+  position: relative;
   margin: 0 0 0.35rem;
   font-family: var(--font-serif);
   font-size: 1.375rem;
@@ -1198,6 +1205,25 @@
     text-transform: uppercase;
   }
 
+  .Hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    display: block;
+    width: 1px;
+    height: 3.5rem;
+    overflow: hidden;
+    background-color: rgb(255 253 248 / 0.28);
+  }
+
+  .Hero-scroll::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-white);
+    transform: translateY(-100%);
+  }
+
   /* Las tarjetas se alternan: la de los pueblos va a la derecha */
   .Setting-panel:nth-child(3) {
     justify-content: flex-end;
@@ -1525,6 +1551,47 @@
     scale: 1.12;
   }
 
+  /* Filosofía: la línea de la cita se dibuja de arriba abajo */
+  .Philosophy-quote.rv {
+    border-left-color: transparent;
+    background: linear-gradient(var(--color-terracotta), var(--color-terracotta)) 0 0 / 2px 0 no-repeat;
+    transition:
+      opacity var(--duration-1000) var(--ease-out),
+      transform var(--duration-1000) var(--ease-out),
+      background-size var(--duration-1200) var(--ease-inOut) 0.35s;
+  }
+
+  .Philosophy-quote.rv.is-in {
+    background-size: 2px 100%;
+  }
+
+  /* Cómo funciona: cada número se rellena cuando la línea llega a él */
+  .Steps-item::before {
+    transition:
+      background-color var(--duration-600) var(--ease-out) var(--fill-delay, 0s),
+      color var(--duration-600) var(--ease-out) var(--fill-delay, 0s);
+  }
+
+  .Steps.is-in .Steps-item::before {
+    background-color: var(--color-terracottaInk);
+    color: var(--color-white);
+  }
+
+  .Steps-item:nth-child(2) { --fill-delay: 0.55s; }
+  .Steps-item:nth-child(3) { --fill-delay: 0.95s; }
+  .Steps-item:nth-child(4) { --fill-delay: 1.35s; }
+  .Steps-item:nth-child(5) { --fill-delay: 1.75s; }
+
+  /* Proyecto: la fase en marcha late suavemente */
+  .Status-item.is-done .Status-dot {
+    animation: statusPulse var(--duration-2400) ease-out infinite;
+  }
+
+  /* Portada: destello que recorre la línea de scroll */
+  .Hero-scroll::after {
+    animation: scrollCue var(--duration-2400) var(--ease-inOut) 1.6s infinite;
+  }
+
   /* Cómo funciona: la línea se dibuja mientras aparecen los pasos */
   .Steps::before {
     transform: scaleX(0);
@@ -1565,6 +1632,26 @@
     user-select: none;
     rotate: -1.5deg;
     transition: none;
+  }
+}
+
+/* Pilares: al pasar el ratón aparece una línea fina bajo el nombre */
+@media (hover: hover) {
+  .Pillars-name::after {
+    content: "";
+    position: absolute;
+    bottom: -0.2rem;
+    left: 0;
+    width: 2rem;
+    height: 1px;
+    background-color: var(--color-terracotta);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform var(--duration-500) var(--ease-out);
+  }
+
+  .Pillars-item:hover .Pillars-name::after {
+    transform: none;
   }
 }
 
@@ -1697,6 +1784,31 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes statusPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(201 205 180 / 0.6);
+  }
+
+  70% {
+    box-shadow: 0 0 0 0.55rem rgb(201 205 180 / 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(201 205 180 / 0);
+  }
+}
+
+@keyframes scrollCue {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  60%,
+  100% {
+    transform: translateY(100%);
   }
 }
 
